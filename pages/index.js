@@ -6,8 +6,8 @@ import Head from 'next/head'
 import { withAmp } from 'next/amp'
 
 /* Static */
-import '../static/css/init.css'
-import '../static/css/blog.css'
+import initStyle from '../static/css/init.css'
+import blogStyle from '../static/css/blog.css'
 
 /* Markdown */
 import content from '../content/init.md'
@@ -30,21 +30,20 @@ const Home = () => {
             <Head>
                 <title>{title}</title>
                 <meta name="title" content={title} />
-                <meta name="description" content={""} />
-                <meta name="author" content={""} />
-                <meta name="keywords" content={""} />
-                <link rel="icon" href={""} />
-                <meta name="revisit-after" content="7 days" />
+                <meta name="description" content={"test"} />
+                <meta name="author" content={"test"} />
+                <meta name="keywords" content={"test"} />
+                <link rel="icon" href={"test"} />
                 <meta httpEquiv="content-language" content="en" />
 
                 <meta property="og:title" content={title} />
-                <meta property="og:description" content={""} />
+                <meta property="og:description" content={"test"} />
                 <meta property="og:site_name" content={title} />
 
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:type" content="website" />
 
-                <meta property="og:image" content={""} />
+                <meta property="og:image" content={"test"} />
                 <meta property="og:image:width" content="1920" />
                 <meta property="og:image:height" content="1080" />
                 <meta property="og:image:alt" content={title} />
@@ -56,10 +55,13 @@ const Home = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={title} />
                 <meta name="twitter:description" content="Introducing Maidreamin API, a RESTful API for getting data from Maidreamin MBK Bangkok" />
-                <meta name="twitter:site" content={""} />
-                <meta name="twitter:creator" content={""} />
-                <meta name="twitter:image" content={""} />
+                <meta name="twitter:site" content={"test"} />
+                <meta name="twitter:creator" content={"test"} />
+                <meta name="twitter:image" content={"test"} />
+
+                <style amp-custom="">{` ${ initStyle.replace(/\n/g, '' ) } ${ blogStyle.replace(/\n/g, '' ) } `}</style>
             </Head>
+
             <main id="main-blog">
                 <article id="main-article">
 
@@ -68,23 +70,23 @@ const Home = () => {
                     </header>
                     <time id="blog-date" dateTime={date}>{ new Date(`${date}`).toLocaleDateString()  }</time>
 
-                    <img id='blog-thumbnail' src={thumbnail} alt={title} />
+                    <amp-img
+                        id='blog-thumbnail' 
+                        layout='responsive'
+                        src={thumbnail} 
+                        alt={title} 
+                        width={640} 
+                        height={360}
+                        />
 
                     <section dangerouslySetInnerHTML={{ __html: html }} />
 
                 </article>
             </main>
-            
+
         </Fragment>
     )
 }
 
 /* Export Component */
-let ExportComponent
-if(process.env.node_env === "development"){ 
-    ExportComponent = Home
-} else {
-    ExportComponent = withAmp(Home, { hybrid: true })
-}
-
-export default ExportComponent
+export default withAmp(Home)
