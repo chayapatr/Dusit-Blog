@@ -1,0 +1,31 @@
+:root {
+    --primary: #000;
+    --secondary: #000;
+
+    --link: #007aff;
+
+    --header: #000;
+    --sub-header: #222;
+    --text: #444;
+    --unimportant-text: #888;
+
+    --background: #f9fafc;
+    --main-background: #fff;
+}
+
+body {
+    margin:0;
+    width:100%;
+    background-color: var(--background);
+}
+
+* { box-sizing: border-box; font-family: Helvetica; }
+
+::selection, ::-webkit-selection {
+    background-color: rgba(0,123,255,.25);
+}
+
+a {
+    text-decoration: none;
+    color: var(--link);
+}
