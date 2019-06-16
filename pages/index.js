@@ -3,90 +3,49 @@ import React, { Fragment } from 'react'
 
 /* Next */
 import Head from 'next/head'
-import { withAmp } from 'next/amp'
-
-/* Static */
-import initStyle from '../static/css/init.css'
-import blogStyle from '../static/css/blog.css'
-
-/* Markdown */
-import content from '../content/init.md'
+import Link from 'next/link'
 
 /* Component */
-const Home = () => {
+import NavigationBar from '../components/navigationBar'
+import LandingMain from '../components/landingMain'
+import LandingMainSelector from '../components/landingMainSelector'
 
-    /* Defination */
-    let { html , 
-        attributes:{ 
-            title, 
-            cats, 
-            date,
-            thumbnail
-        } 
-    } = content;
-    /* View */
-    return (
+/* CSS */
+import '../static/css/init.css'
+import '../static/css/landing.css'
+
+/* View */
+const Landing = () => {
+    return(
         <Fragment>
+
             <Head>
-                <title>{title}</title>
-                <meta name="title" content={title} />
-                <meta name="description" content={"test"} />
-                <meta name="author" content={"test"} />
-                <meta name="keywords" content={"test"} />
-                <link rel="icon" href={"test"} />
-                <meta httpEquiv="content-language" content="en" />
-
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={"test"} />
-                <meta property="og:site_name" content={title} />
-
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:type" content="website" />
-
-                <meta property="og:image" content={"test"} />
-                <meta property="og:image:width" content="1920" />
-                <meta property="og:image:height" content="1080" />
-                <meta property="og:image:alt" content={title} />
-
-                <meta property="article:author" content="aomkirby123" />
-                <meta property="article:published_time" content={date} />
-                <meta property="article:modified_time" content={date} />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content="Introducing Maidreamin API, a RESTful API for getting data from Maidreamin MBK Bangkok" />
-                <meta name="twitter:site" content={"test"} />
-                <meta name="twitter:creator" content={"test"} />
-                <meta name="twitter:image" content={"test"} />
-
-                <style amp-custom="">{` ${ initStyle.replace(/\n/g, '' ) } ${ blogStyle.replace(/\n/g, '' ) } `}</style>
+                <title>Dusit Blog</title>
             </Head>
 
-            <main id="main-blog">
-                <article id="main-article">
+            <NavigationBar />
+            <main id="landing-page">
 
-                    <header>
-                        <h1 id="blog-heading">{title}</h1>
-                    </header>
-                    <time id="blog-date" dateTime={date}>{ new Date(`${date}`).toLocaleDateString()  }</time>
+                <section id="landing-main">
 
-                    <amp-img
-                        id='blog-thumbnail' 
-                        layout='responsive'
-                        src={thumbnail} 
-                        alt={title} 
-                        width={640} 
-                        height={360}
-                        />
+                    <LandingMain name="Hello World" detail="Koisuru Fortune Cookie" src="/static/blog/init/img/anime-girls.jpg" />
 
-                    <section dangerouslySetInnerHTML={{ __html: html }} />
+                    <aside id="landing-main-selector-aside">
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                        <LandingMainSelector name="Hello World" src="/static/blog/init/img/anime-girls.jpg" />
+                    </aside>
 
-                </article>
+                </section>
+
             </main>
 
         </Fragment>
     )
 }
 
-/* Export Component */
-export default withAmp(Home)
+export default Landing

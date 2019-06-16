@@ -1,0 +1,14 @@
+#landing-page {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width:1240px;
+    margin: 73px auto 30px;
+}
+
+#landing-main {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}

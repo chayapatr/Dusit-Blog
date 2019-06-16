@@ -1,6 +1,6 @@
 :root {
-    --primary: #000;
-    --secondary: #000;
+    --primary: #002bbf;
+    --primary-fade: #002bbf75;
 
     --link: #007aff;
 
@@ -10,7 +10,10 @@
     --unimportant-text: #888;
 
     --background: #f9fafc;
-    --main-background: #fff;
+    --background-bright: #fff;
+
+    --gradient: linear-gradient(0deg, #002b6f 0%, #081b6b80 50%, #fff0 100%);
+    --gradient-half: linear-gradient(0deg, #002b6f 0%, #081b6b80 25%, #fff0 50%);
 }
 
 body {

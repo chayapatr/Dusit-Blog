@@ -2,18 +2,14 @@
 const withCSS = require('@zeit/next-css')
 
 /* Export */
-module.exports = {
+module.exports = withCSS({
     webpack: (cfg) => {
         cfg.module.rules.push(
             {
                 test: /\.md$/,
                 use: 'frontmatter-markdown-loader'
-            },
-            {
-                test: /\.css$/,
-                use: 'raw-loader',
             }
         )
         return cfg;
     }
-}
+})
