@@ -1,0 +1,76 @@
+import { h } from 'preact'
+
+import { connect } from 'react-redux'
+
+import './landing-slide-panel.css'
+
+const mapStateToProps = (store, ownProps) => {
+  return{
+    store: {
+
+      landingPanel: {
+        active: store.landingPanel.active
+      }
+
+    },
+    props: ownProps
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: {
+
+      updateLandingPanel: (panelID) => dispatch({
+        type: "UpdateLandingPanel",
+        payload: {
+          landingPanel: {
+            active: panelID
+          }
+        }
+      })
+
+    }
+  }
+}
+
+const LandingSlidePanel = ({ store, dispatch, props }) => {
+  const { landingPanel } = store
+  const { updateLandingPanel } = dispatch
+  const { id, title = 'Dusit Here', detail = 'Dusit Here blogging system', src = '/static/mockup/1.jpg' } = props
+
+  const updateLandingPanelHandler = (event) => {
+    event.preventDefault()
+    updateLandingPanel(id)
+  } 
+
+  if(landingPanel.active === id){
+    return(
+      <button onClick={event => updateLandingPanelHandler(event)} className="landing-slide-panel" style={{ backgroundImage: `url(${src})`, flex: 1 }}>
+        <div className="landing-slide-detail active">
+          <h1 className="landing-slide-title active">
+            {title}
+          </h1>
+          <p className="landing-slide-detail">
+            {detail}
+          </p>
+        </div>
+      </button>
+    )
+  } else {
+    return(
+      <button onClick={event => updateLandingPanelHandler(event)} className="landing-slide-panel" style={{ backgroundImage: `url(${src})` }}>
+        <div className="landing-slide-detail not-active">
+          <h1 className="landing-slide-title">
+            {title}
+          </h1>
+        </div>
+      </button>
+    )
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LandingSlidePanel)

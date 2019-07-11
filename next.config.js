@@ -1,3 +1,6 @@
+const path = require('path')
+const withCSS = require('@zeit/next-css')
+
 const withPreact = (nextConfig = {}) => {
     return Object.assign({}, nextConfig, {
         webpack(config, options) {
@@ -16,6 +19,12 @@ const withPreact = (nextConfig = {}) => {
                 react$: 'preact/compat',
                 'react-dom': 'preact/compat',
                 'react-dom$': 'preact/compat',
+                'assets': path.join(__dirname, 'static/assets'),
+                'css': path.join(__dirname, 'static/css'),
+                'components': path.join(__dirname, 'components'),
+                'mockup': path.join(__dirname, 'static/mockup'),
+                'static': path.join(__dirname, 'static'),
+                'stores': path.join(__dirname, 'stores')
             })
 
             if (typeof nextConfig.webpack === 'function') {
@@ -27,4 +36,4 @@ const withPreact = (nextConfig = {}) => {
     })
 }
 
-module.exports = withPreact();
+module.exports = withCSS(withPreact())

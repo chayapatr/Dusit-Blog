@@ -1,12 +1,15 @@
-import { h } from 'preact'
+import { h } from 'preact';
 
-const Index = () => {
-    return(
-        <div>
-            <h1>Hello World</h1>
-            <p>Running on Preact X with Next.js!</p>
-        </div>
-    )
+import LandingSlide from 'components/landingSlide'
+
+import 'css/landing.css';
+
+const Landing = () => {
+  return(
+    <div id="landing">
+      <LandingSlide />
+    </div>
+  )
 }
 
-export default Index
+export default Landing;
