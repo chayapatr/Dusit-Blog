@@ -9,16 +9,46 @@ div#landing-slide {
   padding:0;
 }
 
+@media screen and (min-width: 238px){
+  h1.landing-slide-title {
+    font-size: 30px;
+  }
+
+  h1.landing-slide-title.active {
+    font-size: 45px;
+  }
+
+
+  p.landing-slide-detail {
+    font-size: 23px;
+  }
+}
+
 @media screen and (min-width: 568px){
+  
+  h1.landing-slide-title {
+    font-size: 30px;
+  }
+
+  h1.landing-slide-title.active {
+    font-size: 50px;
+  }
+
+  p.landing-slide-detail {
+    font-size: 23px;
+  }
+  
   div#landing-slide {
     flex-direction: row;
   }
+
   button.landing-slide-panel {
     width: unset;
     min-width: 75px;
     min-height: unset;
     height: 100vh;
   }
+
   div.landing-slide-detail {
     transform:rotate(90deg);
     height: 75px;
@@ -26,6 +56,7 @@ div#landing-slide {
     align-items: flex-end;
     padding-right: 50px;
   }
+
   div.landing-slide-detail.active {
     transform: unset;
     height: 100%;
@@ -35,13 +66,16 @@ div#landing-slide {
     padding-right:5%;
     transition: unset
   }
+
   div.landing-slide-detail.not-active {
     transition: height .29s ease-in;
   }
+
   h1.landing-slide-title.active {
-    font-size: 42px;
+    font-size: 10px;
     text-align: left;
   }
+
   p.landing-slide-detail {
     display:block;
     width:100%;
@@ -53,9 +87,10 @@ div#landing-slide {
 
 @media screen and (min-width: 768px){
   h1.landing-slide-title.active {
-    font-size: 52px;
+    font-size: 60px;
   }
+
   p.landing-slide-detail {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
