@@ -47,8 +47,8 @@ const LandingSlidePanel = ({ store, dispatch, props }) => {
   if(landingPanel.active === id){
     return(
       <button onClick={event => updateLandingPanelHandler(event)} className="landing-slide-panel" style={{ backgroundImage: `url(${src})`, flex: 1 }}>
-        <div className="landing-slide-detail active">
-          <h2 className="landing-slide-title active">
+        <div className="landing-slide-detail is-active">
+          <h2 className="landing-slide-title is-active">
             {title}
           </h2>
           <p className="landing-slide-detail">
@@ -60,7 +60,7 @@ const LandingSlidePanel = ({ store, dispatch, props }) => {
   } else {
     return(
       <button onClick={event => updateLandingPanelHandler(event)} className="landing-slide-panel" style={{ backgroundImage: `url(${src})` }}>
-        <div className="landing-slide-detail not-active">
+        <div className="landing-slide-detail is-not-active">
           <h2 className="landing-slide-title">
             {title}
           </h2>

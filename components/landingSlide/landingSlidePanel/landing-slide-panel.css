@@ -43,7 +43,7 @@ h2.landing-slide-title {
   text-overflow: ellipsis;
 }
 
-h2.landing-slide-title.active {
+h2.landing-slide-title.is-active {
   white-space: pre-wrap;
   text-overflow: unset;
   font-size: 40px;
