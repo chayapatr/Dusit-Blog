@@ -24,7 +24,8 @@ const withPreact = (nextConfig = {}) => {
                 'components': path.join(__dirname, 'components'),
                 'mockup': path.join(__dirname, 'static/mockup'),
                 'static': path.join(__dirname, 'static'),
-                'stores': path.join(__dirname, 'stores')
+                'stores': path.join(__dirname, 'stores'),
+                'icon': path.join(__dirname, 'components/icon')
             })
 
             if (typeof nextConfig.webpack === 'function') {

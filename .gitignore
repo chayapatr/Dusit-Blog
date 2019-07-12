@@ -2,5 +2,6 @@
 node_modules/*
 out/*
 DS_Store
+temp/*
 yarn.lock
 yarn-error.log
