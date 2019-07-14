@@ -37,6 +37,7 @@ h2.landing-slide-title {
   text-align: center;
   font-size: 24px;
   font-family: Sukhumvit;
+  font-weight: bold;
   color: var(--alter-text-1);
   margin:0;
   white-space: nowrap;
