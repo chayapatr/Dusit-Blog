@@ -1,5 +1,7 @@
 const path = require('path')
 const withCSS = require('@zeit/next-css')
+const WebpackModules = require('webpack-modules');
+
 
 const withPreact = (nextConfig = {}) => {
     return Object.assign({}, nextConfig, {
@@ -36,4 +38,10 @@ const withPreact = (nextConfig = {}) => {
     })
 }
 
-module.exports = withCSS(withPreact())
+module.exports =  withCSS(withPreact()),
+module.exports = {
+    plugins: [
+      new WebpackModules()
+    ]
+  }
+  
