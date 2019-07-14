@@ -1,6 +1,6 @@
 :root {
-  --primary-text-1: #000;
-  --primary-text-2: #333;
+  --primary-text-1: #3c3c3c;
+  --primary-text-2: #5a5a5a;
   --primary-text-3: #666;
 
   --alter-text-1: #fff;
@@ -11,12 +11,12 @@
   --root-2: #eee;
   --root-3: #ddd;
 
-  --alter-root-1: #000;
+  --alter-root-1: #3c3c3c;
   --alter-root-2: #111;
   --alter-root-3: #222;
 
-  --nav: #aaa;
-  --nav-interact: #000;
+  --nav: #3c3c3c;
+  --nav-interact: #3c3c3c;
 
   --border: #ceced2;
 }
@@ -43,7 +43,8 @@ body {
 }
 
 * { 
-  font-family: 'Bai Jam Juree', Roboto, 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: 'Bai Jamjuree', Roboto, 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif; 
+  font-weight: 400;
   box-sizing: border-box;
 }
 

@@ -10,6 +10,10 @@ const LandingSlide = () => {
     <div id='landing-slide'>
       <LandingSlidePanel
         id={0}
+        title="แอบมองเธออยู่นะจ๊ะ"
+        detail="มีอยู่จงเชื่อมันเป็นเช่นไรก็พูด
+        ให้มันเนิ่นนาน ก็ไม่รู้ว่าเขานั้นที่มี
+        ก็ฝ่ามันไปด้วยความสุขนั้น"
         src='/static/mockup/1.jpg'
       />
       <LandingSlidePanel 

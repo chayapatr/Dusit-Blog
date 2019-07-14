@@ -11,6 +11,7 @@ div#landing-slide {
 
 @media screen and (min-width: 238px){
   h1.landing-slide-title {
+    font-family: Sukhumvit;
     font-size: 30px;
   }
 
@@ -20,7 +21,10 @@ div#landing-slide {
 
 
   p.landing-slide-detail {
-    font-size: 23px;
+    font-size: 18px;
+    line-height: 1.75em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
   }
 }
 
@@ -35,7 +39,10 @@ div#landing-slide {
   }
 
   p.landing-slide-detail {
-    font-size: 23px;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin-left: 0em;
+    margin-right: 0em;
   }
   
   div#landing-slide {
@@ -62,7 +69,7 @@ div#landing-slide {
     height: 100%;
     width: 100%;
     align-items: flex-start;
-    padding-left: 15%;
+    padding-left: 7%;
     padding-right:5%;
     transition: unset
   }
@@ -79,6 +86,7 @@ div#landing-slide {
   p.landing-slide-detail {
     display:block;
     width:100%;
+    margin-top: 10px;
     padding-right: 25%;
     font-size: 18px;
     text-align: left;
@@ -87,10 +95,11 @@ div#landing-slide {
 
 @media screen and (min-width: 768px){
   h2.landing-slide-title.is-active {
-    font-size: 60px;
+    font-size: 55px;
   }
 
   p.landing-slide-detail {
-    font-size: 30px;
+    font-size: 22px;
+    line-height: 1.75em;
   }
 }

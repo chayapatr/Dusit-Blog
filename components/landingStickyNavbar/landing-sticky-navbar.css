@@ -7,7 +7,7 @@ nav#landing-sticky-navbar {
   align-items: center;
   width: 100%;
   height: auto;
-  transition: width .325s ease-out, background-color .325s ease-out;
+  transition: width 0.325s ease-out, background-color .325s ease-out;
 }
 
 div#landing-sticky-navbar-wrapper {
@@ -48,10 +48,10 @@ button#landing-sticky-navbar-icon {
 
 div.landing-sticky-navbar-icon-line {
   width: 25px;
-  height: 1.5px;
+  height: 2px;
   background-color: var(--nav);
   position:absolute;
-  transition: transform .25s ease-out, background-color .25s ease-out;
+  transition: transform .325s ease-in, background-color .325s ease-out;
 }
 
 div#landing-sticky-navbar-icon-line-1 { margin-top: 21px; }
@@ -82,8 +82,10 @@ button#landing-sticky-navbar-icon:focus > div.landing-sticky-navbar-icon-line {
 
 h1#landing-sticky-navbar-title {
   font-size: 24px;
-  font-weight: normal;
-  font-family: Sukhumvit;
+  font-family: "Lora";
+  font-style: italic;
+  font-weight: 1;
+  letter-spacing: 1.5px;
   color: var(--primary-text-3);
   margin: 0 15px 0 0;
   cursor:default;
@@ -128,6 +130,19 @@ div#landing-sticky-navbar-overlay {
   display:none;
 }
 
+div#landing-sticky-navbar-panel.is-active {
+  padding-left: 30px;
+}
+
+h1.landing-sticky-navbar-panel-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+h3.landing-sticky-navbar-panel-detail {
+  margin-block-start: 0.75em;
+  margin-block-end: 0.75em;
+}
+
 @keyframes landing-sticky-content-fade-in {
   from { opacity:0; margin-right: 15px; }
 }
@@ -143,12 +158,12 @@ div#landing-sticky-navbar-overlay {
     background-color: transparent;
     justify-content: flex-start;
     border:0;
-    height: 180px;
+    height: 230px;
   }
   h1#landing-sticky-navbar-title {
     transform: rotate(90deg);
     margin-right:0;
-    margin: 48px 3px 0 0;
+    margin: 64px 3px 0 0;
     white-space: nowrap;
     display: inline;
     color: var(--nav);
@@ -156,12 +171,17 @@ div#landing-sticky-navbar-overlay {
 
   #landing-sticky-navbar.is-active {
     right:0;
-    width: 350px;
+    width: 550px;
     background-color: var(--root-1);
     padding-left: 50px;
   }
   div#landing-sticky-navbar-panel {
     background-color: transparent;
+    padding-left: 50px;
+  }
+  a.landing-sticky-navbar-panel-link {
+    font-size: 18px;
+    
   }
   #landing-sticky-navbar.is-active > div#landing-sticky-navbar-wrapper {
     flex-direction: row;
