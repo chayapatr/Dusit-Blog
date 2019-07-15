@@ -5,3 +5,4 @@ DS_Store
 yarn.lock
 yarn-error.log
 .DS_Store
+temp/*
