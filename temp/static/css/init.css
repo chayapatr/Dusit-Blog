@@ -1,0 +1,56 @@
+:root {
+  --primary-text-1: #000;
+  --primary-text-2: #333;
+  --primary-text-3: #666;
+
+  --alter-text-1: #fff;
+  --alter-text-2: #ccc;
+  --alter-text-3: #aaa;
+
+  --root-1: #fff;
+  --root-2: #eee;
+  --root-3: #ddd;
+
+  --alter-root-1: #000;
+  --alter-root-2: #111;
+  --alter-root-3: #222;
+
+  --nav: #aaa;
+  --nav-interact: #000;
+
+  --border: #ceced2;
+}
+
+@font-face {
+  font-family: Sukhumvit;
+  src: url('/static/fonts/Sukhumvit-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jam Juree';
+  src: url('/static/fonts/BaiJamjuree-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin:0;
+  background-color: #f9fafc;
+}
+
+* { 
+  font-family: 'Bai Jam Juree', Roboto, 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif; 
+  box-sizing: border-box;
+}
+
+::selection, ::-webkit-selection {
+  background-color: rgba(0,123,255,.25);
+}
+
+#__next {
+  overflow-y:hidden;
+}

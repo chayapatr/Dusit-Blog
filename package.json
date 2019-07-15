@@ -7,7 +7,7 @@
     "dev": "node server.js",
     "build": "next build",
     "export": "next export",
-    "deploy": "npm run build && npm run export"
+    "deploy": "yarn build && yarn export -o out"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -15,8 +15,8 @@
     "module-alias": "^2.2.0",
     "next": "^9.0.0",
     "next-nprogress": "^1.4.0",
-    "preact": "^10.0.0-beta.3",
-    "preact-render-to-string": "^5.0.4",
+    "preact": "^10.0.0-rc.0",
+    "preact-render-to-string": "^5.0.5",
     "preact-ssr-prepass": "^1.0.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4"

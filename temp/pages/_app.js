@@ -9,17 +9,23 @@ import NProgress from 'next-nprogress/component'
 import 'css/init.css'
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    return {};
+    let pageProps = {};
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+
+    return { pageProps };
   }
 
   render() {
-    const { Component } = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
       <Container>
         <NProgress color="#007aff" />
         <Provider store={store}>
-          <Component />
+          <Component {...pageProps} />
         </Provider>
       </Container>
     );
