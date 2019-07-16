@@ -9,9 +9,9 @@ const LandingStickyNavbarPanelTitle = (props) => {
   return(
     <Link href={href}>
       <a className="landing-sticky-navbar-panel-link">
-        <h5 className="landing-sticky-navbar-panel-title">
+        <h1 className="landing-sticky-navbar-panel-title">
           {title}
-        </h5>
+        </h1>
       </a>
     </Link>
   )
@@ -23,9 +23,9 @@ const LandingStickyNavbarPanelDetail = (props) => {
   return(
     <Link href={href}>
       <a className="landing-sticky-navbar-panel-link">
-        <h6 className="landing-sticky-navbar-panel-detail">
+        <h3 className="landing-sticky-navbar-panel-detail">
           {title}
-        </h6>
+        </h3>
       </a>
     </Link>
   )
