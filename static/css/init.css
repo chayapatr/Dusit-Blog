@@ -1,7 +1,24 @@
 :root {
-  --primary-text-1: #fff;
-  --primary-text-2: #ccc;
-  --primary-text-3: #aaa;
+  --primary-text-1: #000;
+  --primary-text-2: #333;
+  --primary-text-3: #666;
+
+  --alter-text-1: #fff;
+  --alter-text-2: #ccc;
+  --alter-text-3: #aaa;
+
+  --root-1: #fff;
+  --root-2: #eee;
+  --root-3: #ddd;
+
+  --alter-root-1: #000;
+  --alter-root-2: #111;
+  --alter-root-3: #222;
+
+  --nav: #aaa;
+  --nav-interact: #000;
+
+  --border: #ceced2;
 }
 
 @font-face {
@@ -32,4 +49,8 @@ body {
 
 ::selection, ::-webkit-selection {
   background-color: rgba(0,123,255,.25);
+}
+
+#__next {
+  overflow-y:hidden;
 }

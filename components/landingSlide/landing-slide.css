@@ -14,7 +14,7 @@ div#landing-slide {
     font-size: 30px;
   }
 
-  h1.landing-slide-title.active {
+  h1.landing-slide-title.is-active {
     font-size: 45px;
   }
 
@@ -30,7 +30,7 @@ div#landing-slide {
     font-size: 30px;
   }
 
-  h1.landing-slide-title.active {
+  h1.landing-slide-title.is-active {
     font-size: 50px;
   }
 
@@ -57,7 +57,7 @@ div#landing-slide {
     padding-right: 50px;
   }
 
-  div.landing-slide-detail.active {
+  div.landing-slide-detail.is-active {
     transform: unset;
     height: 100%;
     width: 100%;
@@ -67,11 +67,11 @@ div#landing-slide {
     transition: unset
   }
 
-  div.landing-slide-detail.not-active {
+  div.landing-slide-detail.is-not-active {
     transition: height .29s ease-in;
   }
-
-  h1.landing-slide-title.active {
+  
+  h2.landing-slide-title.is-active {
     font-size: 42px;
     text-align: left;
   }
@@ -86,7 +86,7 @@ div#landing-slide {
 }
 
 @media screen and (min-width: 768px){
-  h1.landing-slide-title.active {
+  h2.landing-slide-title.is-active {
     font-size: 60px;
   }
 

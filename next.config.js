@@ -23,3 +23,5 @@ module.exports =  withCSS({
         return config
     }
 })
+
+module.exports = withCSS(withPreact())

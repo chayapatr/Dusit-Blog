@@ -1,0 +1,55 @@
+div#landing-sticky-navbar-panel {
+  display:flex;
+  flex-direction: column;
+  padding: 0 25px;
+  width: 100%;
+  height: 0;
+  background-color: var(--root-1);
+  transition: height .275s ease-out;
+}
+
+div#landing-sticky-navbar-panel.is-active {
+  padding-top: 10px;
+  height:100vh;
+  border-bottom: 1px solid var(--border);
+}
+
+a.landing-sticky-navbar-panel-link {
+  text-decoration: none;
+  color: var(--primary-text-1);
+  cursor:pointer;
+  animation: landing-sticky-panel-link-fade-in .625s ease-out;
+}
+
+h5.landing-sticky-navbar-panel-title {
+  font-size: 21px;
+  color: var(--primary-text-1);
+  font-weight: normal;
+  margin:15px 0;
+  cursor: pointer;
+  transition: padding-left .2s ease-out;
+}
+
+h6.landing-sticky-navbar-panel-detail {
+  font-size: 16px;
+  color: var(--primary-text-2);
+  margin:0;
+  padding:8px 0 8px 15px;
+  font-weight: normal;
+  cursor: pointer;
+  transition: color .2s ease-out, padding-left .2s ease-out;
+}
+
+a.landing-sticky-navbar-panel-link:hover > h6.landing-sticky-navbar-panel-detail,
+a.landing-sticky-navbar-panel-link:focus > h6.landing-sticky-navbar-panel-detail,
+a.landing-sticky-navbar-panel-link:hover > h5.landing-sticky-navbar-panel-title,
+a.landing-sticky-navbar-panel-link:focus > h5.landing-sticky-navbar-panel-title {
+  color: var(--primary-text-1);
+  padding-left: 25px;
+}
+
+@keyframes landing-sticky-panel-link-fade-in {
+  0% { opacity: 0; }
+  35% { opacity: 0; margin-left: 25px; }
+  100% { opacity: 1; }
+}
