@@ -2,13 +2,13 @@ const path = require('path')
 const withCSS = require('@zeit/next-css')
 
 module.exports =  withCSS({
-    exportPathMap: function() {
+    exportPathMap: () => {
         return {
             '/': { page: '/' }
         };
     },
     publicRuntimeConfig: {
-        staticFolder: '/build',
+        staticFolder: '/out',
     },
     webpack (config, options) {
         config.resolve.alias['react'] = 'preact/compat',
