@@ -5,3 +5,6 @@ DS_Store
 temp/*
 yarn.lock
 yarn-error.log
+.DS_Store
+temp/*
+build/*

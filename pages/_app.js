@@ -19,13 +19,13 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component } = this.props;
 
     return (
       <Container>
         <NProgress color="#007aff" />
         <Provider store={store}>
-          <Component {...pageProps} />
+          <Component />
         </Provider>
       </Container>
     );
