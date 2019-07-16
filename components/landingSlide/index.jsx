@@ -1,7 +1,6 @@
-import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { h } from 'preact'
 
-import LandingSlidePanel from './landingSlidePanel';
+import LandingSlidePanel from './landingSlidePanel'
 
 import './landing-slide.css'
 
