@@ -14,20 +14,35 @@ const LandingStickyNavbar = () => {
     if(!window) return;
 
     determineSticky();
-    document.addEventListener("scroll", () => {
-      determineSticky();
-    })
-    document.addEventListener("resize", () => {
-      determineSticky();
-    })
+    stickyListener();
   }, [])
 
+  /* Sticky navigator listener */
   const determineSticky = () => {
     if(window.scrollY / window.innerHeight >= 1){
       setSticky(true)
     } else {
       setSticky(false)
     }
+  }
+
+  const stickyListener = () => {
+    document.addEventListener("scroll", () => {
+      determineSticky();
+      stickyCleanup();
+    })
+    document.addEventListener("resize", () => {
+      determineSticky();
+      stickyCleanup();
+    })
+  }
+
+  const stickyCleanup = () => {
+    document.removeEventListener("scroll", () => null);
+    document.removeEventListener("resize", () => null);
+    setTimeout(() => {
+      determineSticky();
+    }, 8); // Locked listener at 120fps
   }
 
   return(
