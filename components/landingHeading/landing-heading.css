@@ -1,0 +1,36 @@
+h3.landing-heading {
+  display: block;
+  width:100%;
+  text-align: center;
+  font-family: Sukhumvit;
+  font-size: 36px;
+  font-weight: bold;
+  margin:30px 0 15px 0;
+  color: var(--primary-text-1);
+  cursor: default;
+}
+
+div.landing-adaptable-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.landing-adaptable-line {
+  display:none;
+}
+
+@media screen and (min-width: 960px){
+  div.landing-adaptable-heading > h3.landing-heading {
+    transform: rotate(90deg);
+    margin:150px 15px 50px 15px;
+  }
+  div.landing-adaptable-line {
+    display: inline-block;
+    width: 2px;
+    height:200px;
+    background-color: var(--primary-text-1);
+    margin:15px 0 0 0;
+  }
+}

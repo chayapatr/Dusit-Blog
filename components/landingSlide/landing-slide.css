@@ -19,7 +19,6 @@ div#landing-slide {
     font-size: 45px;
   }
 
-
   p.landing-slide-detail {
     font-size: 16px;
     line-height: 1.75em;
@@ -29,8 +28,7 @@ div#landing-slide {
   }
 }
 
-@media screen and (min-width: 568px){
-  
+@media screen and (min-width: 568px){  
   h1.landing-slide-title {
     font-size: 30px;
   }
