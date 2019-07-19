@@ -3,6 +3,7 @@ import { h, Fragment } from 'preact'
 import LandingSlide from 'components/landingSlide'
 import LandingStickyNavbar from 'components/landingStickyNavbar'
 import LandingHeading from 'components/landingHeading'
+import LandingPanelContainer from 'components/landingPanelContainer'
 import Card from 'components/Card'
 
 import 'css/landing.css'
@@ -16,6 +17,8 @@ const Landing = () => {
       <LandingStickyNavbar />
 
       <main id="landing-main">
+
+        <LandingPanelContainer />
 
         <div id="landing-main-card-area">
           {/* This will be on the right side and IS NOT visible on mobile */}

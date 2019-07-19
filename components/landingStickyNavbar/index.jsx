@@ -31,7 +31,7 @@ const LandingStickyNavbar = () => {
       determineSticky();
       stickyCleanup();
     })
-    document.addEventListener("resize", () => {
+    window.addEventListener("resize", () => {
       determineSticky();
       stickyCleanup();
     })
@@ -39,7 +39,7 @@ const LandingStickyNavbar = () => {
 
   const stickyCleanup = () => {
     document.removeEventListener("scroll", () => null);
-    document.removeEventListener("resize", () => null);
+    window.removeEventListener("resize", () => null);
     setTimeout(() => {
       determineSticky();
     }, 8); // Locked listener at 120fps

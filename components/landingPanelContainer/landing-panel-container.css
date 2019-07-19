@@ -1,0 +1,79 @@
+a.landing-panel-link,
+div#landing-panel-container, 
+div.landing-panel-wrapper,
+div.landing-panel
+article.landing-panel-overlay,
+h3#landing-panel-title {
+  display:none;
+}
+
+@media screen and (min-width:960px){
+  h3.landing-heading {
+    display:block !important;
+  }
+
+  a.landing-panel-link {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    display:inline-flex;
+    width:auto;
+    height:auto;
+  }
+
+  div#landing-panel-container, div.landing-panel-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:960px;
+  }
+
+  div#landing-panel-container {
+    margin: 10px 0 50px 0;
+  }
+
+  div.landing-panel-wrapper {
+    flex-direction: row;
+  }
+
+  div.landing-panel {
+    display:inline-flex;
+    width: 320px;
+    height:320px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  article.landing-panel-overlay {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height:inherit;
+    background-color: rgba(0,0,0,.325);
+    padding: 15px 45px;
+    opacity: 0;
+    transition: opacity .25s ease-out;
+  }
+  a.landing-panel-link:hover > div.landing-panel > article.landing-panel-overlay,
+  a.landing-panel-link:focus > div.landing-panel > article.landing-panel-overlay {
+    opacity:1;
+  }
+  h5.landing-panel-title {
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    margin:0 0 30px 0;
+    font-weight: bold;
+  }
+  p.landing-panel-detail {
+    display:block;
+    color: #eee;
+    font-size: 16px;
+    margin:0;
+    font-weight: normal;
+    line-height: 1.625em;
+  }
+}
