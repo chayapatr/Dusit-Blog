@@ -31,17 +31,23 @@ const LandingPanelContainer = () => {
 
   useEffect(() => {
     if(!window) return;
+
+    setLargeHandler();
     detectLarge();
   }, [isLarge]);
 
   const detectLarge = () => {
     window.addEventListener("resize", () => {
-      if(window.innerWidth >= 960){
-        setLarge(true)
-      } else {
-        setLarge(false);
-      }
+      setLargeHandler();
     });
+  }
+
+  const setLargeHandler = () => {
+    if(window.innerWidth >= 960){
+      setLarge(true)
+    } else {
+      setLarge(false);
+    }
   }
 
   if(!isLarge){
