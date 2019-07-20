@@ -87,7 +87,7 @@ div.card-tag-container > a.card-tag:first-child {
   div#landing-main-card-priority-container, div#landing-main-card-container {
     display:flex;
     width:unset;
-    flex:1 1 auto;
+    flex:1;
   }
   img.card-cover {
     height: 400px;
