@@ -1,3 +1,5 @@
+@import '~stylus/colors'
+
 nav#navbar
   position: absolute
   z-index: 3000
@@ -22,8 +24,8 @@ div#navbar-wrapper
   height: 58px
   padding:0 5px
   overflow:hidden
-  background-color: var(--root-1)
-  border-bottom:1px solid var(--border)
+  background-color: root-1
+  border-bottom:1px solid border
 
 button#navbar-icon
   position: relative
@@ -44,12 +46,12 @@ button#navbar-icon
 
   &:hover > div.navbar-icon-line,
   &:focus > div.navbar-icon-line
-    background-color: var(--nav-interact)
+    background-color: nav-interact
 
 div.navbar-icon-line
   width: 20px
   height: 2px
-  background-color: var(--nav)
+  background-color: nav
   position:absolute
   transition: transform .325s ease-in, background-color .325s ease-out
 
@@ -81,7 +83,7 @@ h1#navbar-title
   font-style: italic
   font-weight: 1
   letter-spacing: 1.5px
-  color: var(--primary-text-3)
+  color: tertiary-text
   margin: 0 15px 0 0
   cursor:default
   animation: landing-sticky-content-fade-in .25s ease-out
@@ -108,12 +110,12 @@ button#search-button
 
   &:hover > svg > #search-icon,
   &:focus > svg > #search-icon
-    fill: var(--nav-interact)
+    fill: nav-interact
 
 #search-icon
   width: 28px
   height: 28px
-  fill: var(--nav)
+  fill: nav
   transition: fill .25s ease-out
 
 div#navbar-overlay
@@ -133,7 +135,7 @@ div#navbar-overlay
     &.is-active
       right:0
       width: 550px
-      background-color: var(--root-1)
+      background-color: root-1
       padding-left: 50px
 
       & > div#navbar-wrapper
@@ -155,7 +157,7 @@ div#navbar-overlay
     margin: 64px 3px 0 0
     white-space: nowrap
     display: inline
-    color: var(--nav)
+    color: nav
   
   div#navbar-panel
     background-color: transparent

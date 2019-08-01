@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact'
 
 import LandingSlide from 'components/landingSlide'
 import Navbar from 'components/navbar'
-import LandingHeading from 'components/landingHeading'
+import Heading from 'components/heading'
 import LandingPanelContainer from 'components/landingPanelContainer'
 import Card from 'components/Card'
 
@@ -33,7 +33,7 @@ const Landing = () => {
             </Card>
           </div>
 
-          <LandingHeading adaptable={true}>Lastest</LandingHeading>
+          <Heading adaptable={true}>Lastest</Heading>
 
           {/* This will be on the left side and IS visible on mobile */}
           <div id="landing-main-card-priority-container">
@@ -48,7 +48,7 @@ const Landing = () => {
           </div>
         </div>
 
-        <LandingHeading>Category</LandingHeading>
+        <Heading>Category</Heading>
 
       </main>
 

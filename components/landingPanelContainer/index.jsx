@@ -3,7 +3,7 @@ import { useState, useEffect } from 'preact/hooks'
 
 import Link from 'next/link'
 
-import LandingHeading from 'components/landingHeading'
+import Heading from 'components/heading'
 
 import './landing-panel-container.styl'
 
@@ -56,7 +56,7 @@ const LandingPanelContainer = () => {
 
   return(
     <div id="landing-panel-container">
-      <LandingHeading id="landing-panel-title">Most Popular</LandingHeading>
+      <Heading id="landing-panel-title">Most Popular</Heading>
       <div className="landing-panel-wrapper">
         <LandingPanel src="/static/mockup/1.jpg" />
         <LandingPanel src="/static/mockup/2.jpg" />
