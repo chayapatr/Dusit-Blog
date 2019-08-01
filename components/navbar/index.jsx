@@ -1,7 +1,7 @@
 import { h, Fragment } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
-import LandingStickyNavbarPanel from './navbar-panel'
+import NavbarPanel from './navbar-panel'
 import SearchIcon from 'icon/search'
 
 import './navbar.styl'
@@ -75,7 +75,7 @@ const Navbar = ({ alwaysSticky = false }) => {
                         <h1 id="navbar-title">Dusit here</h1>
                     )}
                 </div>
-                <LandingStickyNavbarPanel
+                <NavbarPanel
                     isActive={isActive}
                     isSticky={isSticky}
                 />
