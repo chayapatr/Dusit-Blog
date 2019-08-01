@@ -2,12 +2,12 @@ import { h } from 'preact'
 
 import "./landing-heading.css"
 
-const LandingHeading = ({ children, adaptable }) => {
+const LandingHeading = ({ children, adaptable, id = "" }) => {
 
   if(adaptable){
     return(
       <div className="landing-adaptable-heading">
-        <h3 className="landing-heading">
+        <h3 id={id} className="landing-heading">
           {children}
         </h3>
         <div className="landing-adaptable-line"></div>
@@ -15,7 +15,7 @@ const LandingHeading = ({ children, adaptable }) => {
     )
   } else {
     return(
-      <h3 className="landing-heading">
+      <h3 id={id} className="landing-heading">
         {children}
       </h3>
     )
