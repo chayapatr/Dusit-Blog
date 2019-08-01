@@ -3,29 +3,26 @@ import React, { Fragment } from 'react'
 
 import Link from 'next/link'
 
-import Layout from 'components/Layout'
 import Navbar from 'components/Navbar'
 import Card from 'components/Card'
 
 import 'stylus/category.styl'
 
-const TagLink = ({ href = "/", children }) => (
+const TagLink = ({ href = '/', children }) => (
     <Link href={`/tag/${href}`}>
-        <a className="category-tag-link">
-            {children}
-        </a>
+        <a className="category-tag-link">{children}</a>
     </Link>
 )
 
 const Category = () => {
-    return(
-        <Layout>
+    return (
+        <Fragment>
             <Navbar alwaysSticky />
             <main id="category">
                 <aside id="category-aside">
                     <h1 id="category-title">Category</h1>
                     <h6 id="category-aside-detail">
-                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
+                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
                         มาเถอะมาระเบิดความฝัน
                     </h6>
                     <div id="category-aside-container">
@@ -40,30 +37,50 @@ const Category = () => {
                 <div id="card-area">
                     {/* This will be on the right side and IS NOT visible on mobile */}
                     <div id="card">
-                        <Card title="Bangkok Ipsum" src="/static/mockup/3.jpg" alt="Yae Sakura" tag="Game">
-                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
-                        มาเถอะมาระเบิดความฝัน
+                        <Card
+                            title="Bangkok Ipsum"
+                            src="/static/mockup/3.jpg"
+                            alt="Yae Sakura"
+                            tag="Game"
+                        >
+                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
+                            มาเถอะมาระเบิดความฝัน
                         </Card>
-                        <Card title="Bangkok Ipsum" src="/static/mockup/1.jpg" alt="Yae Sakura" tag="Game">
-                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
-                        มาเถอะมาระเบิดความฝัน
+                        <Card
+                            title="Bangkok Ipsum"
+                            src="/static/mockup/1.jpg"
+                            alt="Yae Sakura"
+                            tag="Game"
+                        >
+                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
+                            มาเถอะมาระเบิดความฝัน
                         </Card>
                     </div>
 
                     {/* This will be on the left side and IS visible on mobile */}
                     <div id="priority-card">
-                        <Card title="Bangkok Ipsum" src="/static/mockup/5.jpg" alt="Yae Sakura" tag="Game">
-                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
-                        มาเถอะมาระเบิดความฝัน
+                        <Card
+                            title="Bangkok Ipsum"
+                            src="/static/mockup/5.jpg"
+                            alt="Yae Sakura"
+                            tag="Game"
+                        >
+                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
+                            มาเถอะมาระเบิดความฝัน
                         </Card>
-                        <Card title="สวัสดีครับแอดมิน" src="/static/mockup/4.jpg" alt="Yae Sakura" tag="Facebook blog">
-                        สักเท่าไหร่คงจะยังนึกเรื่องนี้ขึ้นมา 
-                        พูดความจริงออกไปเลยผ่านเข้ามา
+                        <Card
+                            title="สวัสดีครับแอดมิน"
+                            src="/static/mockup/4.jpg"
+                            alt="Yae Sakura"
+                            tag="Facebook blog"
+                        >
+                            สักเท่าไหร่คงจะยังนึกเรื่องนี้ขึ้นมา
+                            พูดความจริงออกไปเลยผ่านเข้ามา
                         </Card>
                     </div>
                 </div>
             </main>
-        </Layout>
+        </Fragment>
     )
 }
 
