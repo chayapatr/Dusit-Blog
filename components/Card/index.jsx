@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact'
 
 import Link from 'next/link'
 
-import './card.css'
+import './card.styl'
 
 const Card = ({ title, children = "", src, alt = "Image cover", tag, href = "" }) => {
   return(

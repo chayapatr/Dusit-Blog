@@ -1,6 +1,6 @@
 import { h } from 'preact'
 
-import "./landing-heading.css"
+import "./landing-heading.styl"
 
 const LandingHeading = ({ children, adaptable, id = "" }) => {
 

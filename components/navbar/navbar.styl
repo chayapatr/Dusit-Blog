@@ -1,0 +1,184 @@
+nav#navbar
+  position: absolute
+  z-index: 3000
+  display:flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: auto
+  transition: width 0.325s ease-out, background-color .325s ease-out
+
+  &.is-sticky
+    position:fixed
+    top:0
+
+div#navbar-wrapper
+  display:flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  width:100%
+  height: 58px
+  padding:0 5px
+  overflow:hidden
+  background-color: var(--root-1)
+  border-bottom:1px solid var(--border)
+
+button#navbar-icon
+  position: relative
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: none
+  border:0
+  background-color: transparent
+  display:flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width: 58px
+  height: 58px
+  padding:0 10px
+  outline:none
+  cursor:pointer
+
+  &:hover > div.navbar-icon-line,
+  &:focus > div.navbar-icon-line
+    background-color: var(--nav-interact)
+
+div.navbar-icon-line
+  width: 20px
+  height: 2px
+  background-color: var(--nav)
+  position:absolute
+  transition: transform .325s ease-in, background-color .325s ease-out
+
+div#line-1 
+  margin-top: 21px 
+
+div#line-2 
+  margin-top: 29px 
+
+div#line-3 
+  margin-top: 37px 
+
+button#navbar-icon.is-active
+  justify-content: center
+
+  & > div.navbar-icon-line
+    margin-top:0 !important
+
+  & > div#line-1,
+  & > div#line-3
+    transform: rotate(45deg)
+
+  & > div#line-2
+    transform: rotate(-45deg)
+
+h1#navbar-title
+  font-size: 24px
+  font-family: "Lora"
+  font-style: italic
+  font-weight: 1
+  letter-spacing: 1.5px
+  color: var(--primary-text-3)
+  margin: 0 15px 0 0
+  cursor:default
+  animation: landing-sticky-content-fade-in .25s ease-out
+
+div#navbar-placeholder
+  display: block
+  height: 58px
+  opacity: 0
+
+button#search-button
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: none
+  display:flex
+  justify-content: center
+  align-content: center
+  border:0
+  background-color: transparent
+  width:58px
+  height:58px
+  outline:none
+  animation: landing-sticky-content-fade-in .25s ease-out
+  cursor: pointer
+
+  &:hover > svg > #search-icon,
+  &:focus > svg > #search-icon
+    fill: var(--nav-interact)
+
+#search-icon
+  width: 28px
+  height: 28px
+  fill: var(--nav)
+  transition: fill .25s ease-out
+
+div#navbar-overlay
+  display:none
+
+@keyframes landing-sticky-content-fade-in
+  from 
+    opacity:0 
+    margin-right: 15px 
+
+@media screen and (min-width: 768px)
+  nav#navbar
+    padding-top: 50px
+    width: 100px
+    right: 24px
+
+    &.is-active
+      right:0
+      width: 550px
+      background-color: var(--root-1)
+      padding-left: 50px
+
+      & > div#navbar-wrapper
+        flex-direction: row
+        justify-content: space-between
+        height: unset
+        padding-right: 30px
+  
+  div#navbar-wrapper
+    flex-direction: column
+    background-color: transparent
+    justify-content: flex-start
+    border:0
+    height: 230px
+  
+  h1#navbar-title
+    transform: rotate(90deg)
+    margin-right:0
+    margin: 64px 3px 0 0
+    white-space: nowrap
+    display: inline
+    color: var(--nav)
+  
+  div#navbar-panel
+    background-color: transparent
+    padding-left: 50px
+
+    &.is-active
+      transition: unset
+  
+  div#navbar-overlay
+    display: block
+    position: fixed
+    z-index: -2800
+    top:0
+    left:0
+    width:100%
+    height:100vh
+    background-color: transparent
+    transition: background-color .325s ease-out
+  
+    &.is-active
+      z-index: 2800
+      background-color: rgba(0,0,0,.25)
+  
+  /* navbar-panel.styl */
+  a#navbar-panel > .link
+    font-size: 18px

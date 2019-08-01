@@ -2,10 +2,10 @@ import { h, Fragment } from 'preact'
 
 import Link from 'next/link'
 
-import LandingStickyNavbar from 'components/landingStickyNavbar'
+import Navbar from 'components/Navbar'
 import Card from 'components/Card'
 
-import 'css/category.css'
+import 'stylus/category.styl'
 
 const TagLink = ({ href = "/", children }) => (
     <Link href={`/tag/${href}`}>
@@ -18,7 +18,7 @@ const TagLink = ({ href = "/", children }) => (
 const Category = () => {
     return(
         <Fragment>
-            <LandingStickyNavbar alwaysSticky />
+            <Navbar alwaysSticky />
             <main id="category-main">
                 <aside id="category-aside">
                     <h1 id="category-title">Category</h1>

@@ -6,7 +6,7 @@ import store from 'stores/store'
 
 import NProgress from 'next-nprogress/component'
 
-import 'css/init.css'
+import 'stylus/init.styl'
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};

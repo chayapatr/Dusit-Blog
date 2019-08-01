@@ -20,7 +20,8 @@
     "preact-render-to-string": "^5.0.5",
     "preact-ssr-prepass": "^1.0.0",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "stylus": "^0.54.5"
   },
   "_moduleAliases": {
     "react": "node_modules/preact/compat",

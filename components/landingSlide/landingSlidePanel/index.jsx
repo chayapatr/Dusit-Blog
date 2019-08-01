@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import { connect } from 'react-redux'
 
-import './landing-slide-panel.css'
+import './landing-slide-panel.styl'
 
 const mapStateToProps = (store, ownProps) => {
   return{

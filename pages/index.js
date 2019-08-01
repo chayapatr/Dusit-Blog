@@ -1,12 +1,12 @@
 import { h, Fragment } from 'preact'
 
 import LandingSlide from 'components/landingSlide'
-import LandingStickyNavbar from 'components/landingStickyNavbar'
+import Navbar from 'components/navbar'
 import LandingHeading from 'components/landingHeading'
 import LandingPanelContainer from 'components/landingPanelContainer'
 import Card from 'components/Card'
 
-import 'css/landing.css'
+import 'stylus/landing.styl'
 
 const Landing = () => {
   return(
@@ -14,7 +14,7 @@ const Landing = () => {
       <div id="landing">
         <LandingSlide />
       </div>
-      <LandingStickyNavbar />
+      <Navbar />
 
       <main id="landing-main">
 

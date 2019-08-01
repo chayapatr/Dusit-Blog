@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import LandingHeading from 'components/landingHeading'
 
-import './landing-panel-container.css'
+import './landing-panel-container.styl'
 
 const LandingPanel = ({ href, src }) => {
   return(

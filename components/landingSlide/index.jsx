@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import LandingSlidePanel from './landingSlidePanel'
 
-import './landing-slide.css'
+import './landing-slide.styl'
 
 const LandingSlide = () => {
   return(
