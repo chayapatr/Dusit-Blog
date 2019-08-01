@@ -1,5 +1,7 @@
-import { h, Fragment } from 'preact'
+/* import { h, Fragment } from 'preact' */
+import React, { Fragment } from 'react'
 
+import Layout from 'components/Layout'
 import Slider from 'components/slider'
 import Navbar from 'components/navbar'
 import Heading from 'components/heading'
@@ -10,7 +12,7 @@ import 'stylus/landing.styl'
 
 const Landing = () => {
   return(
-    <Fragment>
+    <Layout>
       <div id="landing">
         <Slider />
       </div>
@@ -53,8 +55,7 @@ const Landing = () => {
         <Heading>Category</Heading>
 
       </main>
-
-    </Fragment>
+    </Layout>
   )
 }
 

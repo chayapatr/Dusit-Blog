@@ -1,5 +1,6 @@
-import { h, Fragment } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
+/* import { h, Fragment } from 'preact'
+import { useState, useEffect } from 'preact/hooks' */
+import React, { Fragment, useState, useEffect } from 'react'
 
 import Link from 'next/link'
 

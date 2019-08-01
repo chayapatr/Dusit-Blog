@@ -1,10 +1,23 @@
-import { h, Fragment } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
+/* import { h, Fragment } from 'preact'
+import { useState, useEffect } from 'preact/hooks' */
+import React, { Fragment, useState, useEffect } from 'react'
 
 import NavbarPanel from './navbar-panel'
 import SearchIcon from 'icon/search'
 
 import './navbar.styl'
+
+const AdaptableTitle = ({ isActive }) => {
+    console.log(isActive)
+    if(isActive) return(
+        <button id="search-button">
+            <SearchIcon id="search-icon" ariaLabel="Seach" />
+        </button>
+    )
+    return(
+        <h1 id="navbar-title">Dusit here</h1>
+    )
+}
 
 const Navbar = ({ alwaysSticky = false }) => {
     const [isSticky, setSticky] = useState(false)
@@ -67,13 +80,7 @@ const Navbar = ({ alwaysSticky = false }) => {
                         <div id="line-2" className="navbar-icon-line" />
                         <div id="line-3" className="navbar-icon-line" />
                     </button>
-                    {isActive ? (
-                        <button id="search-button">
-                            <SearchIcon id="search-icon" ariaLabel="Seach" />
-                        </button>
-                    ) : (
-                        <h1 id="navbar-title">Dusit here</h1>
-                    )}
+                    <AdaptableTitle isActive={isActive} />
                 </div>
                 <NavbarPanel
                     isActive={isActive}

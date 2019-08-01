@@ -1,4 +1,6 @@
-import { h } from 'preact'
+/* import { h } from 'preact' */
+import React from 'react'
+
 import Link from 'next/link'
 
 import './navbar-panel.styl'

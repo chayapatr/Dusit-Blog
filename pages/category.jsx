@@ -1,7 +1,9 @@
-import { h, Fragment } from 'preact'
+/* import { h, Fragment } from 'preact' */
+import React, { Fragment } from 'react'
 
 import Link from 'next/link'
 
+import Layout from 'components/Layout'
 import Navbar from 'components/Navbar'
 import Card from 'components/Card'
 
@@ -17,7 +19,7 @@ const TagLink = ({ href = "/", children }) => (
 
 const Category = () => {
     return(
-        <Fragment>
+        <Layout>
             <Navbar alwaysSticky />
             <main id="category">
                 <aside id="category-aside">
@@ -61,7 +63,7 @@ const Category = () => {
                     </div>
                 </div>
             </main>
-        </Fragment>
+        </Layout>
     )
 }
 

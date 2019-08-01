@@ -1,4 +1,5 @@
-import { h, Fragment } from 'preact'
+/* import { h, Fragment } from 'preact' */
+import React, { Fragment } from 'react'
 
 import Link from 'next/link'
 

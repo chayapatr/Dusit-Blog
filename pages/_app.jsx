@@ -1,8 +1,5 @@
-import { h } from 'preact'
+/* import { h } from 'preact' */
 import App, { Container } from 'next/app'
-
-import { Provider } from 'react-redux'
-import store from 'stores/store'
 
 import NProgress from 'next-nprogress/component'
 
@@ -24,9 +21,7 @@ class MyApp extends App {
     return (
       <Container>
         <NProgress color="#007aff" />
-        <Provider store={store}>
-          <Component />
-        </Provider>
+        <Component />
       </Container>
     );
   }
