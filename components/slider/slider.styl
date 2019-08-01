@@ -1,0 +1,87 @@
+@import '~stylus/fonts'
+
+div#slider
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 100vh
+  margin: 0
+  padding: 0
+
+@media screen and (min-width: 238px) 
+  div.slider-detail
+
+    & > h2.title
+      font-family: title-font
+      font-size: 30px
+    
+      &.is-active 
+        font-size: 45px
+    
+    & > p.detail 
+      font-size: 16px
+      line-height: 1.75em
+      letter-spacing: 1px
+      margin-left: 1.5em
+      margin-right: 1.5em
+
+@media screen and (min-width: 568px) 
+  div#slider
+    flex-direction: row
+
+  button.slider-panel 
+    width: unset
+    min-width: 75px
+    min-height: unset
+    height: 100vh
+
+  div.slider-detail
+    transform: rotate(90deg)
+    height: 75px
+    width: 100vh
+    align-items: flex-end
+    padding-right: 50px
+
+    &.is-active
+      transform: unset
+      height: 100%
+      width: 100%
+      align-items: flex-start
+      padding-left: 7%
+      padding-right: 5%
+      transition: unset
+
+    &.is-not-active
+      transition: height 0.29s ease-in
+
+    & > h2.title
+      font-size: 30px
+
+      &.is-active
+        font-size: 42px
+        text-align: left
+
+    &.is-active 
+      font-size: 50px
+
+  & > p.detail 
+    display: block
+    width: 100%
+    font-size: 16px
+    margin: 15px 0 auto 0
+    padding-right: 25%
+    text-align: left
+    line-height: 2em
+
+@media screen and (min-width: 768px) 
+  div.slider-detail
+    & > h2.title
+
+      &.is-active
+        font-size: 55px
+
+    & > p.detail
+      font-size: 18px
+      line-height: 2em

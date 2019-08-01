@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 
-import LandingSlide from 'components/landingSlide'
+import Slider from 'components/slider'
 import Navbar from 'components/navbar'
 import Heading from 'components/heading'
 import Panel from 'components/panel'
@@ -12,8 +12,9 @@ const Landing = () => {
   return(
     <Fragment>
       <div id="landing">
-        <LandingSlide />
+        <Slider />
       </div>
+
       <Navbar />
 
       <main id="landing-main">
