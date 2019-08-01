@@ -1,95 +1,94 @@
-div#landing-main-card-priority-container, div#landing-main-card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0;
-  width:100%;
-}
+@import '~stylus/colors'
+@import '~stylus/fonts'
 
-div#landing-main-card-container {
-  display:none;
-}
+div#card-area
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width:100%
 
-a.card-link {
-  text-decoration: none;
-  color:var(--primary-text-2);
-}
+div#priority-card, div#card
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: flex-start
+  margin: 0
+  padding: 0
+  width:100%
 
-article.card {
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width:100%;
-  padding: 15px;
-  position: relative;
-  text-decoration: none;
-}
+  & > a.link
+    text-decoration: none
+    color:secondary-text
 
-img.card-cover {
-  display: block;
-  width:100%;
-  height:300px;
-  object-fit: cover;
-  object-position: center;
-  margin-bottom: 20px;
-}
+div#card
+  display:none
 
-h5.card-title {
-  display: block;
-  font-size: 28px;
-  color: var(--primary-text-1);
-  margin:10px 0;
-  font-weight: bold;
-  font-family: Sukhumvit;
-  text-decoration: none;
-}
+article.card
+  display:flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width:100%
+  padding: 15px
+  position: relative
+  text-decoration: none
 
-p.card-detail {
-  display: block;
-  margin: 10px 0;
-  font-size: 18px;
-  color: var(--primary-text-2);
-  font-family: 'Bai Jam Juree';
-  line-height: 1.75em;
-  text-decoration: none;
-}
+  & > img.cover
+    display: block
+    width:100%
+    height:300px
+    object-fit: cover
+    object-position: center
+    margin-bottom: 20px
 
-div.card-tag-container {
-  display:block;
-  width:100%;
-  margin: 10px 0 10px 0;
-}
+  & > h5.title
+    display: block
+    font-size: 28px
+    color: primary-text
+    margin:10px 0
+    font-weight: bold
+    font-family: title-font
+    text-decoration: none
 
-a.card-tag {
-  display:inline-block;
-  font-size: 16px;
-  color:var(--primary-text-3);
-  margin:5px 10px;
-  padding:5px;
-  text-decoration: none;
-  transition: color .2s ease-out;
-  text-decoration: none;
-}
+  & > p.detail
+    display: block
+    margin: 10px 0
+    font-size: 18px
+    color: secondary-text
+    font-family: detail-font
+    line-height: 1.75em
+    text-decoration: none
 
-a.card-tag:hover, a.card-tag:focus {
-  color: var(--primary-text-1);
-}
+div.tag-container
+    display:block
+    width:100%
+    margin: 10px 0 10px 0
 
-div.card-tag-container > a.card-tag:first-child {
-  margin-left:0;
-  padding-left:0;
-}
+  & > a.tag:first-child
+      margin-left:0
 
-@media screen and (min-width: 960px){
-  div#landing-main-card-priority-container, div#landing-main-card-container {
-    display:flex;
-    width:unset;
-    flex:1;
-  }
-  img.card-cover {
-    height: 400px;
-  }
-}
+  & > a.tag
+    display:inline-block
+    font-size: 16px
+    color:tertiary-text
+    margin:5px 10px
+    padding:3px 8px
+    text-decoration: none
+    border-radius: 3px
+    transition: color .2s ease-out, background-color .2s ease-out
+
+    &:hover, 
+    &:focus
+      color: primary-text
+      background-color: rgba(0,0,0,.0425)
+
+@media screen and (min-width: 960px)
+  div#priority-card, div#card
+    display:flex
+    width:unset
+    flex:1
+  
+  article.card
+    & > img.cover
+      height: 400px

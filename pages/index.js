@@ -17,13 +17,14 @@ const Landing = () => {
 
       <Navbar />
 
-      <main id="landing-main">
+      <main id="landing">
 
         <Panel />
 
-        <div id="landing-main-card-area">
+        <div id="card-area">
+
           {/* This will be on the right side and IS NOT visible on mobile */}
-          <div id="landing-main-card-container">
+          <div id="card">
             <Card title="Bangkok Ipsum" src="/static/mockup/3.jpg" alt="Yae Sakura" tag="Game">
               ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
               มาเถอะมาระเบิดความฝัน
@@ -37,7 +38,7 @@ const Landing = () => {
           <Heading adaptable={true}>Lastest</Heading>
 
           {/* This will be on the left side and IS visible on mobile */}
-          <div id="landing-main-card-priority-container">
+          <div id="priority-card">
             <Card title="Bangkok Ipsum" src="/static/mockup/5.jpg" alt="Yae Sakura" tag="Game">
               ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
               มาเถอะมาระเบิดความฝัน

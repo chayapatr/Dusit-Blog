@@ -19,7 +19,7 @@ const Category = () => {
     return(
         <Fragment>
             <Navbar alwaysSticky />
-            <main id="category-main">
+            <main id="category">
                 <aside id="category-aside">
                     <h1 id="category-title">Category</h1>
                     <h6 id="category-aside-detail">
@@ -35,9 +35,9 @@ const Category = () => {
                         <TagLink href="/hello">Hello</TagLink>
                     </div>
                 </aside>
-                <div id="category-main-card-area">
+                <div id="card-area">
                     {/* This will be on the right side and IS NOT visible on mobile */}
-                    <div id="landing-main-card-container">
+                    <div id="card">
                         <Card title="Bangkok Ipsum" src="/static/mockup/3.jpg" alt="Yae Sakura" tag="Game">
                         ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
                         มาเถอะมาระเบิดความฝัน
@@ -49,7 +49,7 @@ const Category = () => {
                     </div>
 
                     {/* This will be on the left side and IS visible on mobile */}
-                    <div id="landing-main-card-priority-container">
+                    <div id="priority-card">
                         <Card title="Bangkok Ipsum" src="/static/mockup/5.jpg" alt="Yae Sakura" tag="Game">
                         ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ 
                         มาเถอะมาระเบิดความฝัน

@@ -16,15 +16,15 @@ const Card = props => {
 
     return (
         <Link href={href}>
-            <a className="card-link">
+            <a className="link">
                 <article className="card">
-                    <img className="card-cover" src={src} alt={alt} />
-                    <h5 className="card-title">{title}</h5>
-                    <p className="card-detail">{children}</p>
-                    <div className="card-tag-container">
+                    <img className="cover" src={src} alt={alt} />
+                    <h5 className="title">{title}</h5>
+                    <p className="detail">{children}</p>
+                    <div className="tag-container">
                         {tag ? (
                             <Link href={`/tag/${tag}`}>
-                                <a className="card-tag">{tag}</a>
+                                <a className="tag">{tag}</a>
                             </Link>
                         ) : (
                             <Fragment />
