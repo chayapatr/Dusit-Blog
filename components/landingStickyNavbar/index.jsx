@@ -6,24 +6,28 @@ import SearchIcon from 'icon/search'
 
 import './landing-sticky-navbar.css'
 
-const LandingStickyNavbar = () => {
+const LandingStickyNavbar = ({ alwaysSticky = false }) => {
   const [ isSticky, setSticky ] = useState(false);
   const [ isActive, setActive ] = useState(false);
 
   useEffect(() => {
     if(!window) return;
 
+    if(alwaysSticky){
+      setSticky(true)
+      return;
+    }
     determineSticky();
     stickyListener();
   }, [])
 
   /* Sticky navigator listener */
   const determineSticky = () => {
-    if(window.scrollY / window.innerHeight >= 1){
-      setSticky(true)
-    } else {
-      setSticky(false)
-    }
+      if(window.scrollY / window.innerHeight >= 1){
+        setSticky(true)
+      } else {
+        setSticky(false)
+      }
   }
 
   const stickyListener = () => {

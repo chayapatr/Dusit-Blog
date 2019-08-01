@@ -1,0 +1,111 @@
+main#category-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 30px 12.5%;
+}
+
+div#category-main-card-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+aside#category-aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 0;
+}
+
+h1#category-title {
+    display: none;
+    cursor: default;
+}
+
+h6#category-aside-detail {
+    font-size: 21px;
+    line-height: 1.625em;
+    font-family: Sukhumvit;
+    margin: 30px 0;
+    cursor: default;
+}
+
+div#category-aside-container {
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+}
+
+div#category-aside-container::after {
+    display: table-cell;
+    content: "";
+    clear: both;
+}
+
+a.category-tag-link {
+    float: left;
+    display: block;
+    width: 33.33%;
+    text-align: center;
+    color: var(--primary-text-2);
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 3px;
+    outline: none;
+    transition: background-color .25s ease-out;
+}
+
+a.category-tag-link:hover,
+a.category-tag-link:focus {
+    color: var(--primary-text-1);
+    background-color: rgba(0, 0, 0, .0425);
+}
+
+@media screen and (min-width: 1023.9px) {
+    h1#category-title {
+        display: block;
+        width:100%;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-size: 32px;
+        margin:0 0 15px 0;
+    }
+
+    h6#category-aside-detail {
+        font-size: 18px;
+        color: var(--primary-text-3)
+    }
+    
+    main#category-main {
+        width: 720px;
+        margin-left: auto;
+        margin-right: calc(50% - (360px + 120px + 30px));
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    aside#category-aside {
+        width: 240px;
+        position: fixed;
+        left: calc(50% - (400px + 120px - 45px));
+    }
+
+    div#category-main-card-area {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 1365.9px) {
+    aside#category-aside {
+        left: calc(50% - (400px + 120px + 30px));
+    }
+}
