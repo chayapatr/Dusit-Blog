@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 import Link from 'next/link'
 
 import Navbar from 'components/navbar'
-import Card from 'components/card'
+import Card from 'components/Card'
 
 import 'stylus/category.styl'
 
