@@ -1,0 +1,28 @@
+div#landing
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 100vh
+
+main#landing
+  display:flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width:100%
+  padding:30px 12.5%
+
+@media screen and (min-width: 960px)
+  main#landing
+    width: 800px
+    margin-left: auto
+    margin-right: auto
+    padding-left: 0
+    padding-right: 0
+
+  div#card-area
+    flex-direction: row-reverse
+    justify-content: space-between
+    align-items: flex-start

@@ -1,0 +1,36 @@
+@import '~stylus/colors'
+@import '~stylus/fonts'
+
+@font-face
+  font-family: title-font
+  src: url('/static/fonts/Sukhumvit-Regular.ttf') format('truetype')
+  font-display: swap
+
+
+@font-face
+  font-family: detail-font
+  src: url('/static/fonts/BaiJamjuree-Regular.ttf') format('truetype')
+  font-display: swap
+
+
+html, body
+  overflow-x: hidden
+
+
+body
+  margin:0
+  background-color: #f9fafc
+
+
+* 
+  font-family: detail-font, Roboto, 'Segoe UI', Helvetica, Tahoma, Geneva, Verdana, sans-serif 
+  font-weight: 400
+  box-sizing: border-box
+
+
+::selection, ::-webkit-selection
+  background-color: rgba(0,123,255,.25)
+
+
+#__next
+  overflow-y:hidden

@@ -1,39 +1,26 @@
 /* import { h, Fragment } from 'preact' */
 import React, { Fragment } from 'react'
 
-import Link from 'next/link'
-
-import Navbar from 'components/Navbar'
+import Slider from 'components/slider'
+import Navbar from 'components/navbar'
+import Heading from 'components/heading'
+import Panel from 'components/panel'
 import Card from 'components/Card'
 
-import 'stylus/category.styl'
+import 'stylus/landing.styl'
 
-const TagLink = ({ href = '/', children }) => (
-    <Link href={`/tag/${href}`}>
-        <a className="category-tag-link">{children}</a>
-    </Link>
-)
-
-const Category = () => {
+const Landing = () => {
     return (
         <Fragment>
-            <Navbar alwaysSticky />
-            <main id="category">
-                <aside id="category-aside">
-                    <h1 id="category-title">Category</h1>
-                    <h6 id="category-aside-detail">
-                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                        มาเถอะมาระเบิดความฝัน
-                    </h6>
-                    <div id="category-aside-container">
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                    </div>
-                </aside>
+            <div id="landing">
+                <Slider />
+            </div>
+
+            <Navbar />
+
+            <main id="landing">
+                <Panel />
+
                 <div id="card-area">
                     {/* This will be on the right side and IS NOT visible on mobile */}
                     <div id="card">
@@ -57,6 +44,8 @@ const Category = () => {
                         </Card>
                     </div>
 
+                    <Heading adaptable={true}>Lastest</Heading>
+
                     {/* This will be on the left side and IS visible on mobile */}
                     <div id="priority-card">
                         <Card
@@ -79,9 +68,11 @@ const Category = () => {
                         </Card>
                     </div>
                 </div>
+
+                <Heading>Category</Heading>
             </main>
         </Fragment>
     )
 }
 
-export default Category
+export default Landing

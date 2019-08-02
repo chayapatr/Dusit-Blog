@@ -1,4 +1,4 @@
-import { h } from 'preact'
+/* import { h } from 'preact' */
 import App, { Container } from 'next/app'
 
 import { Provider } from 'react-redux'
@@ -6,7 +6,7 @@ import store from 'stores/store'
 
 import NProgress from 'next-nprogress/component'
 
-import 'css/init.css'
+import 'stylus/init.styl'
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -26,10 +26,10 @@ class MyApp extends App {
         <NProgress color="#007aff" />
         <Provider store={store}>
           <Component />
-        </Provider>
+        </Provider> 
       </Container>
-    );
+    )
   }
 }
 
-export default MyApp;
+export default MyApp

@@ -1,0 +1,66 @@
+div#panel-container
+  display:none
+
+@media screen and (min-width:960px)
+  div#panel-container
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
+      width:960px
+      margin: 10px 0 50px 0
+
+    & > .wrapper
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
+      width:960px
+      flex-direction: row
+
+      & > a.link 
+        color: #fff
+        text-decoration: none
+        outline: none
+        display:inline-flex
+        width:auto
+        height:auto
+        
+        &:hover > div.landing-panel > article.overlay,
+        &:focus > div.landing-panel > article.overlay 
+          opacity:1
+
+    div.landing-panel 
+      display:inline-flex
+      width: 320px
+      height:320px
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center
+    
+      & > article.overlay 
+        display: flex !important
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: inherit
+        height:inherit
+        background-color: rgba(0,0,0,.325)
+        padding: 15px 45px
+        opacity: 0
+        transition: opacity .25s ease-out
+    
+        & > h5.title 
+          display: block
+          color: #fff
+          font-size: 28px
+          margin:0 0 30px 0
+          font-weight: bold
+    
+        & > p.detail 
+          display:block
+          color: #eee
+          font-size: 16px
+          margin:0
+          font-weight: normal
+          line-height: 1.625em
