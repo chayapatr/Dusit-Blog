@@ -9,7 +9,7 @@ nav#navbar
   align-items: center
   width: 100%
   height: auto
-  transition: width 0.325s ease-out, background-color .325s ease-out
+  transition: width 0.325s ease-out
 
   &.is-sticky
     position:fixed
@@ -48,6 +48,19 @@ button#navbar-icon
   &:focus > div.navbar-icon-line
     background-color: nav-interact
 
+  &.is-active
+    justify-content: center
+
+    & > div.navbar-icon-line
+      margin-top:0 !important
+
+    & > div#line-1,
+    & > div#line-3
+      transform: rotate(45deg)
+
+    & > div#line-2
+      transform: rotate(-45deg)
+
 div.navbar-icon-line
   width: 20px
   height: 2px
@@ -63,19 +76,6 @@ div#line-2
 
 div#line-3 
   margin-top: 37px 
-
-button#navbar-icon.is-active
-  justify-content: center
-
-  & > div.navbar-icon-line
-    margin-top:0 !important
-
-  & > div#line-1,
-  & > div#line-3
-    transform: rotate(45deg)
-
-  & > div#line-2
-    transform: rotate(-45deg)
 
 h1#navbar-title
   font-size: 24px
@@ -137,6 +137,7 @@ div#navbar-overlay
       width: 550px
       background-color: root-1
       padding-left: 50px
+      transition: width 0.325s ease-out, background-color .325s ease-out
 
       & > div#navbar-wrapper
         flex-direction: row
@@ -150,7 +151,60 @@ div#navbar-overlay
     justify-content: flex-start
     border:0
     height: 230px
-  
+
+  button#navbar-icon
+
+    &:hover > div.navbar-icon-line#line-1,
+    &:focus > div.navbar-icon-line#line-1
+      animation: interact-rotate-1 .375s ease-out 0s 1
+
+    &:hover > div.navbar-icon-line#line-2,
+    &:focus > div.navbar-icon-line#line-2
+      animation: interact-rotate-2 .375s ease-out 0s 1
+
+    &:hover > div.navbar-icon-line#line-3,
+    &:focus > div.navbar-icon-line#line-3
+      animation: interact-rotate-3 .375s ease-out 0s 1
+ 
+  @keyframes interact-rotate-1
+    0%
+      transform: rotate(0deg)
+      background-color: nav
+
+    70%
+      transform: rotate(180deg)
+      background-color: nav
+      
+    100%
+      transform: rotate(180deg)
+      background-color: nav-interact
+
+  @keyframes interact-rotate-2
+    10%
+      transform: rotate(0deg)
+      background-color: nav
+
+    80%
+        transform: rotate(180deg)
+        background-color: nav
+
+    100%
+      transform: rotate(180deg)
+      background-color: nav-interact
+
+  @keyframes interact-rotate-3
+    20%
+      transform: rotate(0deg)
+      background-color: nav
+
+    90%
+      transform: rotate(180deg)
+      background-color: nav
+    
+    100%
+      transform: rotate(180deg) 
+      background-color: nav-interact
+
   h1#navbar-title
     transform: rotate(90deg)
     margin-right:0
@@ -180,7 +234,10 @@ div#navbar-overlay
     &.is-active
       z-index: 2800
       background-color: rgba(0,0,0,.25)
-  
+
+  div#navbar-placeholder
+    display: none
+
   /* navbar-panel.styl */
   a#navbar-panel > .link
     font-size: 18px
