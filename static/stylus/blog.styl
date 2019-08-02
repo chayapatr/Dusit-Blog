@@ -1,0 +1,101 @@
+@import '~stylus/colors'
+@import '~stylus/fonts'
+
+main#blog
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width:100%
+    padding: 0
+
+article#blog-article
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin:0 auto
+
+    & > img
+        display: block
+        width: 100%
+        margin:30px auto
+        object-fit: cover
+        object-position: center
+
+    & > img#blog-cover
+        margin: 0 auto
+    
+    & > p
+        display: block
+        margin:20px 0
+        padding: 0 6.25%
+        font-family: detail-font
+        font-weight: normal
+        font-size: 16px
+        line-height: 1.75em
+        color: secondary-text
+        cursor: default
+
+h1#blog-header
+    display: block
+    width: 100%
+    font-size: 36px
+    font-family: title-font
+    font-weight: bold
+    margin:30px 0 10px 0
+    padding: 0 6.25%
+    color: primary-text
+    text-align: left
+    cursor: default
+
+aside#tag-container
+    display: flex
+    flex-direction: row
+    width: 100%
+    margin: 15px 0
+    font-size: 16px
+    color: tertiary-text
+    padding: 0 calc(6.25% - 8px)
+
+    & > a.tag-link
+        color: tertiary-text
+        text-decoration: none
+        outline: none
+
+        & > h6.tag
+            font-size: 16px
+            color: tertiary-text
+            margin: 0 5px
+            padding: 5px 8px
+            border-radius: 3px
+            transition: background-color .2s ease-out
+
+        &:hover > h6.tag,
+        &:focus > h6.tag
+            background-color: rgba(0,0,0,.0375)    
+
+@media screen and (min-width: 768px)
+    main#blog
+        padding: 50px 0
+
+    article#blog-article
+        width: 740px
+
+        & > img
+            width: 100%
+
+        & > img#blog-cover
+            margin: 0 0 15px 0
+
+        & > p
+            font-size: 20px
+            padding: 0 8px
+
+    h1#blog-header
+        font-size: 48px
+        padding: 0 8px
+
+    aside#tag-container
+        padding: 0

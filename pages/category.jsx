@@ -3,14 +3,19 @@ import React, { Fragment } from 'react'
 
 import Link from 'next/link'
 
-import Navbar from 'components/Navbar'
+import Navbar from 'components/navbar'
 import Card from 'components/Card'
 
 import 'stylus/category.styl'
 
 const TagLink = ({ href = '/', children }) => (
     <Link href={`/tag/${href}`}>
-        <a className="category-tag-link">{children}</a>
+        <a className="tag-link">
+            <h6 className="tag">
+                {children}
+            </h6>
+            <div className="tag-underline"></div>
+        </a>
     </Link>
 )
 
@@ -20,12 +25,12 @@ const Category = () => {
             <Navbar alwaysSticky />
             <main id="category">
                 <aside id="category-aside">
-                    <h1 id="category-title">Category</h1>
-                    <h6 id="category-aside-detail">
+                    <h1 id="aside-title">Category</h1>
+                    <h6 id="aside-detail">
                         ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
                         มาเถอะมาระเบิดความฝัน
                     </h6>
-                    <div id="category-aside-container">
+                    <div id="aside-container">
                         <TagLink href="/hello">Hello</TagLink>
                         <TagLink href="/hello">Hello</TagLink>
                         <TagLink href="/hello">Hello</TagLink>

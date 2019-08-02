@@ -1,0 +1,29 @@
+@import '~stylus/colors'
+@import '~stylus/fonts'
+
+main#error
+    display:flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: calc(100vh - 58px)
+    background-color: root-1
+
+    & > h1#title
+        font-size: 48px
+        font-family: title-font
+        margin: 0 25px 0 0
+        border-right: 1px solid tertiary-text
+        padding:0 25px 0 0
+        cursor: default
+
+    & > h2#detail
+        font-size: 21px
+        font-family: title-font
+        font-weight: normal
+        cursor: default
+
+@media screen and (min-width: 768px)
+    main#error
+        height: 100vh
