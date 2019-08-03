@@ -47,7 +47,14 @@ const Navbar = ({ alwaysSticky = false }) => {
         window.removeEventListener('resize', () => null)
         setTimeout(() => {
             determineSticky()
-        }, 8) // Locked listener at 120fps
+        }, 4) // Locked listener at 240fps
+    }
+
+    const setActiveHandler = (event, newIsActive = !isActive) => {
+        event.preventDefault()
+
+        if(!newIsActive) event.target.blur()
+        setActive(newIsActive)
     }
 
     return (
@@ -62,7 +69,7 @@ const Navbar = ({ alwaysSticky = false }) => {
                     <button
                         id="navbar-icon"
                         className={`${isActive ? 'is-active' : ''}`}
-                        onClick={() => setActive(!isActive)}
+                        onClick={(event) => setActiveHandler(event)}
                     >
                         <div id="line-1" className="navbar-icon-line" />
                         <div id="line-2" className="navbar-icon-line" />

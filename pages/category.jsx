@@ -2,9 +2,10 @@
 import React, { Fragment } from 'react'
 
 import Link from 'next/link'
+import Head from 'next/head'
 
 import Navbar from 'components/navbar'
-import Card from 'components/Card'
+import Card from 'components/card'
 
 import 'stylus/category.styl'
 
@@ -22,6 +23,9 @@ const TagLink = ({ href = '/', children }) => (
 const Category = () => {
     return (
         <Fragment>
+            <Head>
+                <title>Category</title>
+            </Head>
             <Navbar alwaysSticky />
             <main id="category">
                 <aside id="category-aside">

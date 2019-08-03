@@ -17,26 +17,31 @@ article#blog-article
     width: 100%
     margin:0 auto
 
-    & > img
+    section.blog-section
         display: block
-        width: 100%
-        margin:30px auto
-        object-fit: cover
-        object-position: center
+        width:100%
+        margin:0 0 30px 0
 
-    & > img#blog-cover
-        margin: 0 auto
-    
-    & > p
-        display: block
-        margin:20px 0
-        padding: 0 6.25%
-        font-family: detail-font
-        font-weight: normal
-        font-size: 16px
-        line-height: 1.75em
-        color: secondary-text
-        cursor: default
+        & > img
+            display: block
+            width: 100%
+            margin:30px auto
+            object-fit: cover
+            object-position: center
+
+        & > img#blog-cover
+            margin: 0 auto
+        
+        & > p
+            display: block
+            margin:20px 0
+            padding: 0 6.25%
+            font-family: detail-font
+            font-weight: normal
+            font-size: 16px
+            line-height: 1.75em
+            color: secondary-text
+            cursor: default
 
 h1#blog-header
     display: block
@@ -83,19 +88,21 @@ aside#tag-container
     article#blog-article
         width: 740px
 
-        & > img
-            width: 100%
+        section.blog-section
 
-        & > img#blog-cover
-            margin: 0 0 15px 0
+            & > img
+                width: 100%
 
-        & > p
-            font-size: 20px
+            & > img#blog-cover
+                margin: 0 0 15px 0
+
+            & > p
+                font-size: 20px
+                padding: 0 8px
+
+        h1#blog-header
+            font-size: 48px
             padding: 0 8px
 
-    h1#blog-header
-        font-size: 48px
-        padding: 0 8px
-
-    aside#tag-container
-        padding: 0
+        aside#tag-container
+            padding: 0
