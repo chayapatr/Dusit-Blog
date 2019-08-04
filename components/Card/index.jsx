@@ -1,7 +1,7 @@
 /* import { h, Fragment } from 'preact' */
-import React, { Fragment } from './node_modules/react'
+import React, { Fragment } from 'react'
 
-import Link from './node_modules/next/link'
+import Link from 'next/link'
 
 import './card.styl'
 
