@@ -120,11 +120,20 @@ button#search-button
 
 div#navbar-overlay
   display:none
+  right: 100
+  animation: overlay-display-delay .325s ease-out 0s 1
 
 @keyframes landing-sticky-content-fade-in
   from 
     opacity:0 
     margin-right: 15px 
+
+@keyframes overlay-display-delay
+  from
+    right: 0
+  
+  to
+    right: 0
 
 @media screen and (min-width: 768px)
   nav#navbar
@@ -165,6 +174,18 @@ div#navbar-overlay
     &:hover > div.navbar-icon-line#line-3,
     &:focus > div.navbar-icon-line#line-3
       animation: interact-rotate-3 .375s ease-out 0s 1
+
+    &.is-active:hover > div.navbar-icon-line#line-1,
+    &.is-active:focus > div.navbar-icon-line#line-1
+      animation: unset
+
+    &.is-active:hover > div.navbar-icon-line#line-2,
+    &.is-active:focus > div.navbar-icon-line#line-2
+      animation: unset
+
+    &.is-active:hover > div.navbar-icon-line#line-3,
+    &.is-active:focus > div.navbar-icon-line#line-3
+      animation: unset
  
   @keyframes interact-rotate-1
     0%
@@ -226,6 +247,7 @@ div#navbar-overlay
     z-index: -2800
     top:0
     left:0
+    right:unset
     width:100%
     height:100vh
     background-color: transparent

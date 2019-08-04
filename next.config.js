@@ -8,9 +8,11 @@ module.exports =  withStylus({
             '/category': { page: '/category' }
         };
     },
+    /*
     publicRuntimeConfig: {
         staticFolder: '/out',
-    },
+    },*/
+    target: 'serverless',
     webpack (config, options) {
 /*        config.resolve.alias['react'] = 'preact/compat',
         config.resolve.alias['react-dom'] = 'preact/compat',

@@ -52,7 +52,7 @@ const LandingSlidePanel = ({ store, dispatch, props }) => {
             <button
                 onClick={event => updateLandingPanelHandler(event)}
                 className="slider-panel"
-                style={{ backgroundImage: `url(${src})`, flex: 1 }}
+                style={{ backgroundImage: `url(${src})`,flex: 1 }}
             >
                 <div className="slider-detail is-active">
                     <h2 className="title is-active">{title}</h2>

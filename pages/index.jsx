@@ -1,17 +1,23 @@
 /* import { h, Fragment } from 'preact' */
 import React, { Fragment } from 'react'
 
+import Head from 'next/head'
+
 import Slider from 'components/slider'
 import Navbar from 'components/navbar'
 import Heading from 'components/heading'
 import Panel from 'components/panel'
-import Card from 'components/Card'
+import Card from 'components/card'
 
 import 'stylus/landing.styl'
 
 const Landing = () => {
     return (
         <Fragment>
+            <Head>
+                <title>Dusit Here</title>
+            </Head>
+
             <div id="landing">
                 <Slider />
             </div>
