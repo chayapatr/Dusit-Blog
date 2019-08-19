@@ -12,12 +12,14 @@ import Navbar from 'components/navbar'
 
 import 'stylus/blog.styl'
 
+import content from '../content/home.md';
+
 const Blog = () => {
     const router = useRouter(),
         { blog } = router.query
-
-    const blogContent = {
-        title: 'แอบมองเธออยู่บนนั้น',
+   
+    {/*const blogContent = {
+        title: 'แอบมอ,
         tags: ['Game', 'Osu!', 'Yeah boi!'],
         cover: {
             src: '/static/mockup/1.jpg',
@@ -35,10 +37,12 @@ const Blog = () => {
             มาเถอะมาระเบิดความฝันสักเท่าไหร่คงจะยังนึกเรื่องนี้ขึ้นมา พูดความจริงออกไปเลยผ่านเข้ามา`,
             'ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ มาเถอะมาระเบิดความฝัน',
         ],
-    }
 
-    const { title, tags, seo, cover, contents } = blogContent
+        const { title, tags, seo, cover, contents } = blogContent
+    }*/}
 
+    
+    let { html , attributes:{ title, contents } } = content;
     let error = false
 
     if (error) return <Error />
