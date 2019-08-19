@@ -12,7 +12,7 @@ import Navbar from 'components/navbar'
 
 import 'stylus/blog.styl'
 
-import content from '../content/home.md';
+import content from '../../content/home.md';
 
 const Blog = () => {
     const router = useRouter(),
