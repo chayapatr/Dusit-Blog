@@ -12,7 +12,7 @@ module.exports =  withStylus({
     publicRuntimeConfig: {
         staticFolder: '/out',
     },*/
-    target: 'serverless',
+    target: 'server',
     webpack (config, options) {
 /*        config.resolve.alias['react'] = 'preact/compat',
         config.resolve.alias['react-dom'] = 'preact/compat',
