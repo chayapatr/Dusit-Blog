@@ -1,12 +1,13 @@
 ---
-title: Awesome kitties
-date: 2019-03-17T19:31:20.591Z
-tags: cat 
-contents:
-  - description: 'Maru is a Scottish Fold from Japan, and he loves boxes.'
-    name: Maru (まる)
-  - description: Lil Bub is an American celebrity cat known for her unique appearance.
-    name: Lil Bub
-  - description: 'Grumpy cat is an American celebrity cat known for her grumpy appearance. '
-    name: Grumpy cat (Tardar Sauce)
+title: My Second Post!
+date: "2015-05-06T23:46:37.121Z"
 ---
+
+Wow! I love blogging so much already.
+
+Did you know that "despite its name, salted duck eggs can also be made from
+chicken eggs, though the taste and texture will be somewhat different, and the
+egg yolk will be less rich."?
+([Wikipedia Link](http://en.wikipedia.org/wiki/Salted_duck_egg))
+
+Yeah, I didn't either.
