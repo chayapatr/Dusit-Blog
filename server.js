@@ -15,49 +15,49 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 /* Config */
-let ssrCache;
+let ssrCache
 
-if(dev){
-  ssrCache = cacheableResponse({
-    ttl: 0,
-    get: async ({ req, res, pagePath, queryParams }) => ({
-      data: await app.renderToHTML(req, res, pagePath, queryParams)
-    }),
-    send: ({ data, res }) => res.send(data)
-  })
+if (dev) {
+    ssrCache = cacheableResponse({
+        ttl: 1000,
+        get: async ({ req, res, pagePath, queryParams }) => ({
+            data: await app.renderToHTML(req, res, pagePath, queryParams),
+        }),
+        send: ({ data, res }) => res.send(data),
+    })
 } else {
-  ssrCache = cacheableResponse({
-    ttl: 1000 * 60 * 60, // 1hour
-    get: async ({ req, res, pagePath, queryParams }) => ({
-      data: await app.renderToHTML(req, res, pagePath, queryParams)
-    }),
-    send: ({ data, res }) => res.send(data)
-  })
+    ssrCache = cacheableResponse({
+        ttl: 1000 * 60 * 60, // 1hour
+        get: async ({ req, res, pagePath, queryParams }) => ({
+            data: await app.renderToHTML(req, res, pagePath, queryParams),
+        }),
+        send: ({ data, res }) => res.send(data),
+    })
 }
 
 /* Package */
-const compression = require('compression');
+const compression = require('compression')
 
 app.prepare().then(() => {
-  /* Create Server */
-  const server = express();
-  server.use(compression());
+    /* Create Server */
+    const server = express()
+    server.use(compression())
 
-  /* Route */
-  server.get("/", (req,res) => {
-    ssrCache({ req, res, pagePath: '/' })
-  });
+    /* Route */
+    server.get('/', (req, res) => {
+        ssrCache({ req, res, pagePath: '/' })
+    })
 
-  server.get("/category", (req,res) => {
-    ssrCache({ req, res, pagePath: '/category' })
-  });
+    server.get('/category', (req, res) => {
+        ssrCache({ req, res, pagePath: '/category' })
+    })
 
-  server.get("*", (req,res) => {
-    handle(req, res)
-  });
+    server.get('*', (req, res) => {
+        handle(req, res)
+    })
 
-  /* Listen */
-  server.listen(port, err => {
-    console.log(`> Ready on http://localhost:${port}`)
-  })
+    /* Listen */
+    server.listen(port, err => {
+        console.log(`> Ready on http://localhost:${port}`)
+    })
 })
