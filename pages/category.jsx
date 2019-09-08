@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 import Navbar from 'components/navbar'
-import Card from 'components/Card'
+import Card from 'components/card'
 
 import 'stylus/category.styl'
 

@@ -7,7 +7,7 @@ import Slider from 'components/slider'
 import Navbar from 'components/navbar'
 import Heading from 'components/heading'
 import Panel from 'components/panel'
-import Card from 'components/Card'
+import Card from 'components/card'
 
 import 'stylus/landing.styl'
 
