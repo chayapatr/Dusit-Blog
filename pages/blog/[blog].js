@@ -1,11 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 
 import Link from 'next/link'
 import Head from 'next/head'
 
-import { Title, Description, Tag } from 'components/head'
-
-import { useRouter } from 'next/router'
+import { Title, Description, Tag, SEOImage } from 'components/head'
 
 import Error from 'components/error'
 import Navbar from 'components/navbar'
@@ -14,34 +12,19 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import 'stylus/blog.styl'
 
-const contentfulAPI = require('contentful').createClient({
-    space: process.env.space_id,
-    accessToken: process.env.access_token
-})
-
-const Blog = () => {
-    const router = useRouter(),
-        { blog } = router.query
-
-    const [post, setPost] = useState(false)
-
-    useEffect(() => {
-        (async () => {
-            const blogData = await fetchBlogData(blog)
-
-            setPost(blogData[0])
-        })()
-    }, [blog])
-
-    async function fetchBlogData(blog) {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            'fields.title': blog,
-        })
-        if (entries.items) return entries.items
+const Blog = ({ post }) => {
+    let options = {
+        renderNode: {
+            'embedded-asset-block': node => (
+                <img
+                    className="blog-image"
+                    src={node.data.target.fields.file.url}
+                    alt={post.fields.thumbnail.fields.description}
+                />
+            ),
+        },
     }
 
-    if (post === false) return null
     if (typeof post === 'undefined') return <Error />
 
     return (
@@ -59,21 +42,22 @@ const Blog = () => {
                     content={post.sys.updatedAt}
                 />
                 <Tag tags={post.tags} />
+                <SEOImage
+                    href={post.fields.thumbnail.fields.file.url}
+                    alt={post.fields.thumbnail.fields.description}
+                />
             </Head>
 
             <Navbar alwaysSticky />
             <main id="blog">
                 <article id="blog-article">
-                    <section className="blog-section">
+                    <section id="blog-section">
                         <img
                             id="blog-cover"
                             src={post.fields.thumbnail.fields.file.url}
                             alt={post.fields.thumbnail.fields.description}
                         />
                         <h1 id="blog-header">{post.fields.title}</h1>
-
-                        {documentToReactComponents(post.fields.content)}
-
                         <aside id="tag-container">
                             {post.fields.tags.map((tag, index) => (
                                 <Link key={index} href={`/tag/${tag}`}>
@@ -85,11 +69,38 @@ const Blog = () => {
                                 </Link>
                             ))}
                         </aside>
+
+                        <section id="blog-content">
+                            {documentToReactComponents(
+                                post.fields.content,
+                                options
+                            )}
+                        </section>
                     </section>
                 </article>
             </main>
         </Fragment>
     )
+}
+
+Blog.getInitialProps = async ctx => {
+    const contentfulAPI = require('contentful').createClient({
+        space: process.env.space_id,
+        accessToken: process.env.access_token,
+    })
+
+    async function fetchBlogData(blog) {
+        const entries = await contentfulAPI.getEntries({
+            content_type: 'dusitHereModel1',
+            'fields.title': blog,
+        })
+        if (entries.items) return entries.items
+    }
+
+    const blogData = await fetchBlogData(ctx.query.blog)
+    return {
+        post: blogData[0],
+    }
 }
 
 export default Blog

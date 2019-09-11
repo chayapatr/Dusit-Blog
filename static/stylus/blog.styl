@@ -17,31 +17,100 @@ article#blog-article
     width: 100%
     margin:0 auto
 
-    section.blog-section
+#blog-section
+    display: block
+    width:100%
+    margin:0 0 30px 0
+
+#blog-cover
+    display: block
+    margin: 0 auto
+    width: 100%
+    object-fit: cover
+    object-position: center
+
+#blog-content
+    display: block
+    width:100%
+    margin:30px 0 0  0
+    padding 0
+
+    & > h1,
+    & > h2,
+    & > h3,
+    & > h4,
+    & > h5,
+    & > h6,
+    & > p,
+    & > blockquote
+        margin 20px 15px
+        font-family detail-font
+
+    & > h1,
+    & > h2,
+    & > h3
+        margin-top 30px
+        margin-bottom 30px
+        line-height 1.25em
+
+    & > h1,
+    & > h2,
+    & > h3
+        margin-top 25px
+        margin-bottom 25px
+        line-height 1.25em
+
+    & > h1
+        font-size: 32px
+        font-weight: bold
+        font-family: title-font
+
+    & > h2
+        font-size: 28px
+        font-weight: bold
+        font-family: title-font
+
+    & > h3
+        font-size: 26px
+
+    & > h4
+        font-size: 24px
+
+    & > h5
+        font-size: 22px
+
+    & > h6
+        font-size: 20px
+
+    & > p
         display: block
-        width:100%
-        margin:0 0 30px 0
+        font-weight: normal
+        font-size: 18px
+        line-height: 1.625em
+        color: secondary-text
+        cursor: default
 
-        & > img
-            display: block
-            width: 100%
-            margin:30px auto
-            object-fit: cover
-            object-position: center
+    & > blockquote
+        width calc(100% - 30px)
+        padding 10px 15px
+        border-radius 5px
+        background-color: #efeff4
+        overflow: hidden
 
-        & > img#blog-cover
-            margin: 0 auto
-        
-        & > p
-            display: block
-            margin:20px 0
-            padding: 0 6.25%
-            font-family: detail-font
-            font-weight: normal
-            font-size: 16px
-            line-height: 1.75em
-            color: secondary-text
-            cursor: default
+        & > *
+            margin 0
+            color primary-text
+            font-family Consolas
+            white-space pre-wrap
+            word-break break-word
+            line-height 1.4em
+
+    & > .blog-image
+        display: block
+        width: 100%
+        margin:30px auto
+        object-fit: cover
+        object-position: center
 
 h1#blog-header
     display: block
@@ -49,7 +118,7 @@ h1#blog-header
     font-size: 36px
     font-family: title-font
     font-weight: bold
-    margin:30px 0 10px 0
+    margin:30px 0 0px 0
     padding: 0 6.25%
     color: primary-text
     text-align: left
@@ -59,7 +128,7 @@ aside#tag-container
     display: flex
     flex-direction: row
     width: 100%
-    margin: 15px 0
+    margin: 10px 0 70px 0
     font-size: 16px
     color: tertiary-text
     padding: 0 calc(6.25% - 8px)
@@ -88,21 +157,42 @@ aside#tag-container
     article#blog-article
         width: 740px
 
-        section.blog-section
-
-            & > img
-                width: 100%
-
-            & > img#blog-cover
-                margin: 0 0 15px 0
-
-            & > p
-                font-size: 20px
-                padding: 0 8px
-
+    #blog-section
         h1#blog-header
             font-size: 48px
             padding: 0 8px
 
         aside#tag-container
             padding: 0
+
+    #blog-content
+        & > h1,
+        & > h2,
+        & > h3,
+        & > h4,
+        & > h5,
+        & > h6,
+        & > p,
+            margin 0
+
+        & > p
+            font-size: 20px
+            padding: 0 8px
+
+    #blog-cover
+        margin:30px auto
+
+@media screen and (min-width: 568px) and (max-width: 767.9px)
+    h1#blog-header
+        font-size 42px
+    
+    #blog-content
+        width 80%
+        margin auto
+
+@media screen and (min-width 1366px)
+    h1#blog-header
+        font-size 48px
+
+    img#blog-cover
+        margin-top 30px

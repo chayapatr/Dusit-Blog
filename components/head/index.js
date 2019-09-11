@@ -24,3 +24,13 @@ export const Tag = ({ tags = [] }) => (
         <meta name="article:tag" content={ tags.toString() } />
     </Head>
 )
+
+export const SEOImage = ({ href = "", width = 1920, height = 1080, alt = "" }) => (
+    <Head>
+        <meta property="og:image" content={href} />
+        <meta property="og:image:width" content={width} />
+        <meta property="og:image:height" content={height} />
+        <meta property="og:image:alt" content={alt} />
+        <meta property="twitter:image" content={href} />
+    </Head>
+)
