@@ -4,15 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
     "export": "next export",
     "deploy": "yarn build && yarn export -o out"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-stylus": "^1.0.1",
     "cacheable-response": "^1.6.12",
+    "contentful": "^7.9.1",
     "cross-env": "^5.2.1",
     "express": "^4.17.1",
     "frontmatter-markdown-loader": "^2.0.0",

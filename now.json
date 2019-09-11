@@ -15,6 +15,16 @@
             "use": "@now/static" 
         }
     ],
+    "build": {
+        "env": {
+            "space_id": "@contentful_space_id",
+            "access_token": "@contentful_access_token"
+        }
+    },
+    "env": {
+        "space_id": "@contentful_space_id",
+        "access_token": "@contentful_access_token"
+    },
     "regions": ["all"],
     "routes": [
         {
