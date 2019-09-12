@@ -8,19 +8,18 @@ import Heading from 'components/heading'
 
 import './panel.styl'
 
-const LandingPanel = ({ href = "", src }) => {
+const LandingPanel = ({ title, src, summary }) => {
     return (
-        <Link href={`/blog/${href}`}>
+        <Link href={`/blog/${title}`}>
             <a className="link">
                 <div
                     className="landing-panel"
                     style={{ backgroundImage: `url('${src}')` }}
                 >
                     <article className="overlay">
-                        <h5 className="title">Hello World</h5>
+                        <h5 className="title">{title}</h5>
                         <p className="detail">
-                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                            มาเถอะมาระเบิดความฝัน
+                            {summary}
                         </p>
                     </article>
                 </div>
@@ -29,7 +28,7 @@ const LandingPanel = ({ href = "", src }) => {
     )
 }
 
-const LandingPanelContainer = () => {
+const LandingPanelContainer = ({ popular }) => {
     const [isLarge, setLarge] = useState(false)
 
     useEffect(() => {
@@ -61,14 +60,24 @@ const LandingPanelContainer = () => {
         <div id="panel-container">
             <Heading id="panel-title">Most Popular</Heading>
             <div className="wrapper">
-                <LandingPanel src="/static/mockup/1.jpg" href="" />
-                <LandingPanel src="/static/mockup/2.jpg" />
-                <LandingPanel src="/static/mockup/3.jpg" />
+                { popular.firstHalf.map((blog, index) => (
+                    <LandingPanel
+                        key={index}
+                        title={blog.fields.title}
+                        src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                        summary={blog.fields.summary}
+                    />
+                )) }
             </div>
             <div className="wrapper">
-                <LandingPanel src="/static/mockup/4.jpg" />
-                <LandingPanel src="/static/mockup/5.jpg" />
-                <LandingPanel src="/static/mockup/1.jpg" />
+                { popular.secondHalf.map((blog, index) => (
+                    <LandingPanel
+                        key={index}
+                        title={blog.fields.title}
+                        src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                        summary={blog.fields.summary}
+                    />
+                )) }
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ import Card from 'components/card'
 import 'stylus/category.styl'
 
 const TagLink = ({ href = '/', children }) => (
-    <Link href={`/tag/${href}`}>
+    <Link href={href}>
         <a className="tag-link">
             <h6 className="tag">
                 {children}
@@ -20,77 +20,99 @@ const TagLink = ({ href = '/', children }) => (
     </Link>
 )
 
-const Category = () => {
+const Category = ({ sortByLatest, displayTags }) => {
+    let latest = {
+        firstHalf: sortByLatest.slice(0, sortByLatest.length / 2),
+        secondHalf: sortByLatest.slice(sortByLatest.length / 2, sortByLatest.length)
+    }
+
     return (
         <Fragment>
             <Head>
                 <title>Category</title>
             </Head>
-            <Navbar alwaysSticky />
+            <Navbar alwaysSticky displayTags={displayTags} />
             <main id="category">
                 <aside id="category-aside">
                     <h1 id="aside-title">Category</h1>
                     <h6 id="aside-detail">
-                        ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                        มาเถอะมาระเบิดความฝัน
                     </h6>
                     <div id="aside-container">
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
-                        <TagLink href="/hello">Hello</TagLink>
+                        {displayTags[0].fields.tags.map((tag, index ) =>
+                            <TagLink key={index} href={`/category/${tag}`}>{tag}</TagLink>
+                        )}
                     </div>
                 </aside>
+
                 <div id="card-area">
                     {/* This will be on the right side and IS NOT visible on mobile */}
                     <div id="card">
-                        <Card
-                            title="Bangkok Ipsum"
-                            src="/static/mockup/3.jpg"
-                            alt="Yae Sakura"
-                            tag="Game"
-                        >
-                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                            มาเถอะมาระเบิดความฝัน
-                        </Card>
-                        <Card
-                            title="Bangkok Ipsum"
-                            src="/static/mockup/1.jpg"
-                            alt="Yae Sakura"
-                            tag="Game"
-                        >
-                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                            มาเถอะมาระเบิดความฝัน
-                        </Card>
+                        { latest.firstHalf.map((blog, index) => (
+                            <Card
+                                key={index}
+                                title={blog.fields.title}
+                                src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                                alt={blog.fields.thumbnail.fields.description}
+                                tag={blog.fields.tags}
+                            >
+                                ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
+                                มาเถอะมาระเบิดความฝัน
+                            </Card>
+                        ))}
                     </div>
 
                     {/* This will be on the left side and IS visible on mobile */}
                     <div id="priority-card">
-                        <Card
-                            title="Bangkok Ipsum"
-                            src="/static/mockup/5.jpg"
-                            alt="Yae Sakura"
-                            tag="Game"
-                        >
-                            ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                            มาเถอะมาระเบิดความฝัน
-                        </Card>
-                        <Card
-                            title="สวัสดีครับแอดมิน"
-                            src="/static/mockup/4.jpg"
-                            alt="Yae Sakura"
-                            tag="Facebook blog"
-                        >
-                            สักเท่าไหร่คงจะยังนึกเรื่องนี้ขึ้นมา
-                            พูดความจริงออกไปเลยผ่านเข้ามา
-                        </Card>
+                        { latest.secondHalf.map((blog, index) => (
+                            <Card
+                                key={index}
+                                title={blog.fields.title}
+                                src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                                alt={blog.fields.thumbnail.fields.description}
+                                tag={blog.fields.tags}
+                            >
+                                ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
+                                มาเถอะมาระเบิดความฝัน
+                            </Card>
+                        ))}
                     </div>
+
                 </div>
             </main>
         </Fragment>
     )
+}
+
+Category.getInitialProps = async ctx => {
+    const contentfulAPI = require('contentful').createClient({
+        space: process.env.space_id,
+        accessToken: process.env.access_token,
+    })
+
+    async function fetchLatest() {
+        const entries = await contentfulAPI.getEntries({
+            content_type: 'dusitHereModel1',
+            order: "sys.updatedAt",
+            limit: 12
+        })
+        if (entries.items) return entries.items
+    }
+
+    async function fetchTags() {
+        const entries = await contentfulAPI.getEntries({
+            content_type: 'displayTag',
+            limit: 6
+        })
+        if (entries.items) return entries.items
+    }
+
+    let latestData = await fetchLatest(),
+        tagsData = await fetchTags()
+
+    return {
+        sortByLatest: latestData,
+        displayTags: tagsData
+    }
 }
 
 export default Category

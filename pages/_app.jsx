@@ -1,5 +1,5 @@
-/* import { h } from 'preact' */
-import App, { Container } from 'next/app'
+import { Fragment } from 'react'
+import App from 'next/app'
 
 import { Provider } from 'react-redux'
 import store from 'stores/store'
@@ -22,12 +22,12 @@ class MyApp extends App {
         const { Component, pageProps } = this.props
 
         return (
-            <Container>
+            <Fragment>
                 <NProgress color="#007aff" />
                 <Provider store={store}>
                     <Component {...pageProps} />
                 </Provider>
-            </Container>
+            </Fragment>
         )
     }
 }

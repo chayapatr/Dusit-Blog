@@ -25,13 +25,11 @@ module.exports =  withStylus({
         config.resolve.alias['static'] = path.join(__dirname, 'static'),
         config.resolve.alias['stores'] = path.join(__dirname, 'stores'),
         config.resolve.alias['icon'] = path.join(__dirname, 'components/icon')
-        config.module.rules.push(
-            {
-                test: /\.md$/,
-                use: 'frontmatter-markdown-loader'
-            }
-        )
          
         return config
+    },
+    env: {
+        space_id: process.env.space_id,
+        access_token: process.env.access_token
     }
 })

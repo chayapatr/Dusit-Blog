@@ -1,50 +1,53 @@
 /* import { h, Fragment } from 'preact' */
 import React, { Fragment } from 'react'
 
+import Link from 'next/link'
 import Head from 'next/head'
 
-import Slider from 'components/slider'
 import Navbar from 'components/navbar'
-import Heading from 'components/heading'
-import Panel from 'components/panel'
 import Card from 'components/card'
 
-import 'stylus/landing.styl'
+import 'stylus/category.styl'
 
-const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
-    let latest = {
-            firstHalf: sortByLatest.slice(0, sortByLatest.length / 2),
-            secondHalf: sortByLatest.slice(
-                sortByLatest.length / 2,
-                sortByLatest.length
-            ),
-        },
-        popular = {
-            firstHalf: sortByPopular.slice(0, sortByPopular.length / 2),
-            secondHalf: sortByPopular.slice(
-                sortByPopular.length / 2,
-                sortByPopular.length
-            ),
-        }
+const TagLink = ({ href = '/', children }) => (
+    <Link href={href}>
+        <a className="tag-link">
+            <h6 className="tag">
+                {children}
+            </h6>
+            <div className="tag-underline"></div>
+        </a>
+    </Link>
+)
+
+const CategoryTag = ({ tagData, displayTags }) => {
+    let tag = {
+        firstHalf: tagData.slice(0, tagData.length / 2),
+        secondHalf: tagData.slice(tagData.length / 2, tagData.length)
+    }
 
     return (
         <Fragment>
             <Head>
-                <title>Dusit Here</title>
+                <title>Category</title>
             </Head>
-
-            <div id="landing">
-                <Slider displayTop={displayTop} />
-            </div>
-
-            <Navbar displayTags={displayTags} />
-
-            <main id="landing">
-                <Panel popular={popular} />
+            <Navbar alwaysSticky displayTags={displayTags} />
+            <main id="category">
+                <aside id="category-aside">
+                    <h1 id="aside-title">Category</h1>
+                    <h6 id="aside-detail">
+                    </h6>
+                    <div id="aside-container">
+                        {displayTags[0].fields.tags.map((tag, index ) =>
+                            <TagLink key={index} href={`/category/${tag}`}>{tag}</TagLink>
+                        )}
+                    </div>
+                </aside>
 
                 <div id="card-area">
+
                     <div id="card">
-                        {latest.firstHalf.map((blog, index) => (
+                        { tag ? tag.firstHalf.map((blog, index) => (
                             <Card
                                 key={index}
                                 title={blog.fields.title}
@@ -55,14 +58,11 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
                                 ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
                                 มาเถอะมาระเบิดความฝัน
                             </Card>
-                        ))}
+                        )) : null}
                     </div>
 
-                    <Heading adaptable={true}>Lastest</Heading>
-
-                    {/* This will be on the left side and IS visible on mobile */}
                     <div id="priority-card">
-                        {latest.secondHalf.map((blog, index) => (
+                        { tag ? tag.secondHalf.map((blog, index) => (
                             <Card
                                 key={index}
                                 title={blog.fields.title}
@@ -73,45 +73,27 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
                                 ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
                                 มาเถอะมาระเบิดความฝัน
                             </Card>
-                        ))}
+                        )) : null}
                     </div>
-                </div>
 
-                <Heading>Category</Heading>
+                </div>
             </main>
         </Fragment>
     )
 }
 
-Landing.getInitialProps = async ctx => {
+CategoryTag.getInitialProps = async ctx => {
     const contentfulAPI = require('contentful').createClient({
         space: process.env.space_id,
         accessToken: process.env.access_token,
     })
 
-    async function fetchDisplayTop() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayBlog',
-            'fields.title': 'Blogs which appear on top of the landing page',
-            limit: 5,
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchLatest() {
+    async function fetchTag(tag) {
         const entries = await contentfulAPI.getEntries({
             content_type: 'dusitHereModel1',
-            order: 'sys.createdAt',
-            limit: 6,
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchPopular() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            order: 'sys.revision',
-            limit: 6,
+            "fields.tags[in]": tag,
+            order: "sys.updatedAt",
+            limit: 12
         })
         if (entries.items) return entries.items
     }
@@ -119,22 +101,18 @@ Landing.getInitialProps = async ctx => {
     async function fetchTags() {
         const entries = await contentfulAPI.getEntries({
             content_type: 'displayTag',
-            limit: 6,
+            limit: 6
         })
         if (entries.items) return entries.items
     }
 
-    let displayTopData = await fetchDisplayTop(),
-        latestData = await fetchLatest(),
-        popularBlog = await fetchPopular(),
+    let tagData = await fetchTag(ctx.query.tag),
         tagsData = await fetchTags()
 
     return {
-        displayTop: displayTopData[0].fields.blogs,
-        sortByLatest: latestData,
-        sortByPopular: popularBlog,
-        displayTags: tagsData,
+        tagData: tagData,
+        displayTags: tagsData
     }
 }
 
-export default Landing
+export default CategoryTag

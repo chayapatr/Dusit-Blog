@@ -7,7 +7,7 @@ import SearchIcon from 'icon/search'
 
 import './navbar.styl'
 
-const Navbar = ({ alwaysSticky = false }) => {
+const Navbar = ({ alwaysSticky = false, displayTags }) => {
     const [isSticky, setSticky] = useState(false)
     const [isActive, setActive] = useState(false)
 
@@ -86,6 +86,7 @@ const Navbar = ({ alwaysSticky = false }) => {
                 <NavbarPanel
                     isActive={isActive}
                     isSticky={isSticky}
+                    displayTags={displayTags[0].fields.tags}
                 />
             </nav>
             <div id="navbar-placeholder" />
