@@ -12,11 +12,10 @@ const Card = props => {
         src,
         alt = 'Image cover',
         tag,
-        href = '',
     } = props
 
     return (
-        <Link href={href}>
+        <Link href={`/blog/${title}`}>
             <a className="link">
                 <article className="card">
                     <img className="cover" src={src} alt={alt} />

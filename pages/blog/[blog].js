@@ -18,7 +18,7 @@ const Blog = ({ post }) => {
             'embedded-asset-block': node => (
                 <img
                     className="blog-image"
-                    src={node.data.target.fields.file.url}
+                    src={`https:${node.data.target.fields.file.url}`}
                     alt={post.fields.thumbnail.fields.description}
                 />
             ),
@@ -29,10 +29,15 @@ const Blog = ({ post }) => {
 
     return (
         <Fragment>
+            <Title>{post.fields.title}</Title>
+            <Description>{post.fields.summary}</Description>
+            <Tag tags={post.tags} />
+            <SEOImage
+                href={`https:${post.fields.thumbnail.fields.file.url}`}
+                alt={post.fields.thumbnail.fields.description}
+            />
             <Head>
                 <title>{post.fields.title}</title>
-                <Title>{post.fields.title}</Title>
-                <Description>{post.fields.summary}</Description>
                 <meta
                     property="article:published_time"
                     content={post.sys.createdAt}
@@ -40,11 +45,6 @@ const Blog = ({ post }) => {
                 <meta
                     property="article:modified_time"
                     content={post.sys.updatedAt}
-                />
-                <Tag tags={post.tags} />
-                <SEOImage
-                    href={post.fields.thumbnail.fields.file.url}
-                    alt={post.fields.thumbnail.fields.description}
                 />
             </Head>
 
@@ -54,7 +54,7 @@ const Blog = ({ post }) => {
                     <section id="blog-section">
                         <img
                             id="blog-cover"
-                            src={post.fields.thumbnail.fields.file.url}
+                            src={`https:${post.fields.thumbnail.fields.file.url}`}
                             alt={post.fields.thumbnail.fields.description}
                         />
                         <h1 id="blog-header">{post.fields.title}</h1>

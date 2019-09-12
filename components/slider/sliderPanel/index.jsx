@@ -1,6 +1,8 @@
 /* import { h } from 'preact' */
 import React from 'react'
 
+import Link from 'next/link'
+
 import { connect } from 'react-redux'
 
 import './slider-panel.styl'
@@ -37,9 +39,9 @@ const LandingSlidePanel = ({ store, dispatch, props }) => {
     const { updateLandingPanel } = dispatch
     const {
         id,
-        title = 'Dusit Here',
-        detail = 'Dusit Here blogging system',
-        src = '/static/mockup/1.jpg',
+        title,
+        detail,
+        src
     } = props
 
     const updateLandingPanelHandler = event => {
@@ -57,6 +59,9 @@ const LandingSlidePanel = ({ store, dispatch, props }) => {
                 <div className="slider-detail is-active">
                     <h2 className="title is-active">{title}</h2>
                     <p className="detail">{detail}</p>
+                    <Link href={`/blog/${title}`}>
+                        <a className="read">Read more</a>
+                    </Link>
                 </div>
             </button>
         )

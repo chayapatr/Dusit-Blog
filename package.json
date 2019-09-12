@@ -40,5 +40,6 @@
   "resolutions": {
     "styled-jsx": "3.0.0",
     "lodash": "4.17.14"
-  }
+  },
+  "engines": { "node": "10.x" }
 }
