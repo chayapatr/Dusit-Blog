@@ -4,10 +4,10 @@ import Navbar from 'components/navbar'
 
 import './error.styl'
 
-const Error = ({ code = "404", detail = "Page not found." }) => {
+const Error = ({ code = "404", detail = "Page not found.", displayTags }) => {
     return(
         <Fragment>
-            <Navbar alwaysSticky />
+            <Navbar alwaysSticky displayTags={displayTags} />
             <main id="error">
                 <h1 id="title">{code}</h1>
                 <h2 id="detail">{detail}</h2>

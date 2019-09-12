@@ -12,7 +12,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import 'stylus/blog.styl'
 
-const Blog = ({ post }) => {
+const Blog = ({ post, displayTags }) => {
     let options = {
         renderNode: {
             'embedded-asset-block': node => (
@@ -24,8 +24,6 @@ const Blog = ({ post }) => {
             ),
         },
     }
-
-    console.log(post)
 
     if (typeof post === 'undefined') return <Error />
 
@@ -50,7 +48,7 @@ const Blog = ({ post }) => {
                 />
             </Head>
 
-            <Navbar alwaysSticky />
+            <Navbar alwaysSticky displayTags={displayTags} />
             <main id="blog">
                 <article id="blog-article">
                     <section id="blog-section">
@@ -100,9 +98,20 @@ Blog.getInitialProps = async ctx => {
         if (entries.items) return entries.items
     }
 
-    const blogData = await fetchBlogData(ctx.query.blog)
+    async function fetchTags() {
+        const entries = await contentfulAPI.getEntries({
+            content_type: 'displayTag',
+            limit: 6
+        })
+        if (entries.items) return entries.items
+    }
+
+    let blogData = await fetchBlogData(ctx.query.blog),
+        tagsData = await fetchTags()
+
     return {
         post: blogData[0],
+        displayTags: tagsData
     }
 }
 

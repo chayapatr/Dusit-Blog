@@ -6,59 +6,77 @@ import { Title, Description } from 'components/head'
 
 import Error from 'components/error'
 
-class ErrorPage extends React.Component {
-    static getInitialProps({ res, err }) {
-        const statusCode = res ? res.statusCode : err ? err.statusCode : null
-        return { statusCode }
+const ErrorPage = ({ statusCode, displayTags }) => {
+    let errorDetail = {
+        '400': 'Bad Request',
+        '401': 'Unauthorized',
+        '402': 'Payment Required',
+        '403': 'Permission denied',
+        '404': 'This page went missing...',
+        '405': 'Method Not Allowed',
+        '406': 'Not Acceptable',
+        '407': 'Proxy Authentication Required',
+        '408': 'Request Timeout',
+        '409': 'Conflict',
+        '410': 'Gone',
+        '411': 'Length Required',
+        '412': 'Precondition Required',
+        '413': 'Request Entry Too Large',
+        '414': 'Request-URI Too Long',
+        '415': 'Unsupported Media Type',
+        '416': 'Requested Range Not Satisfiable',
+        '417': 'Expectation Failed',
+        '418': "I'm a teapot",
+        '500': 'Internal Server Error',
+        '501': 'Not Implemented',
+        '502': 'Bad Gateway',
+        '503': 'Service Unavailable',
+        '504': 'Gateway Timeout',
+        '505': 'HTTP Version Not Supported',
     }
 
-    render() {
-        let { statusCode } = this.props
+    let statusDetail = errorDetail[statusCode]
+        ? errorDetail[statusCode]
+        : 'Something went wrong'
 
-        let errorDetail = {
-            '400': 'Bad Request',
-            '401': 'Unauthorized',
-            '402': 'Payment Required',
-            '403': 'Permission denied',
-            '404': 'This page went missing...',
-            '405': 'Method Not Allowed',
-            '406': 'Not Acceptable',
-            '407': 'Proxy Authentication Required',
-            '408': 'Request Timeout',
-            '409': 'Conflict',
-            '410': 'Gone',
-            '411': 'Length Required',
-            '412': 'Precondition Required',
-            '413': 'Request Entry Too Large',
-            '414': 'Request-URI Too Long',
-            '415': 'Unsupported Media Type',
-            '416': 'Requested Range Not Satisfiable',
-            '417': 'Expectation Failed',
-            '418': "I'm a teapot",
-            '500': 'Internal Server Error',
-            '501': 'Not Implemented',
-            '502': 'Bad Gateway',
-            '503': 'Service Unavailable',
-            '504': 'Gateway Timeout',
-            '505': 'HTTP Version Not Supported',
-        }
+    return (
+        <Fragment>
+            <Head>
+                <title>{statusDetail}</title>
 
-        let statusDetail = errorDetail[statusCode]
-            ? errorDetail[statusCode]
-            : 'Something went wrong'
+            </Head>
+            <Title>{statusDetail}</Title>
+            <Description>
+                {statusCode} - {statusDetail}
+            </Description>
+            <Error
+                code={statusCode}
+                detail={statusDetail}
+                displayTags={displayTags}
+            />
+        </Fragment>
+    )
+}
 
-        return (
-            <Fragment>
-                <Head>
-                    <title>{statusDetail}</title>
+ErrorPage.getInitialProps = async ({ res, err }) => {
+    const contentfulAPI = require('contentful').createClient({
+        space: process.env.space_id,
+        accessToken: process.env.access_token,
+    })
 
-                    <Title>{statusDetail}</Title>
-                    <Description>{statusCode} - {statusDetail}</Description>
-                </Head>
-                <Error code={statusCode} detail={statusDetail} />
-            </Fragment>
-        )
+    const statusCode = res ? res.statusCode : err ? err.statusCode : null
+
+    async function fetchTags() {
+        const entries = await contentfulAPI.getEntries({
+            content_type: 'displayTag',
+            limit: 6,
+        })
+        if (entries.items) return entries.items
     }
+
+    let tagsData = await fetchTags()
+
+    return { statusCode: statusCode, displayTags: tagsData }
 }
 
 export default ErrorPage

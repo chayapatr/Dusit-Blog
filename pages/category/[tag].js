@@ -31,7 +31,7 @@ const CategoryTag = ({ tagData, displayTags }) => {
             <Head>
                 <title>Category</title>
             </Head>
-            <Navbar alwaysSticky />
+            <Navbar alwaysSticky displayTags={displayTags} />
             <main id="category">
                 <aside id="category-aside">
                     <h1 id="aside-title">Category</h1>
