@@ -20,10 +20,10 @@ const TagLink = ({ href = '/', children }) => (
     </Link>
 )
 
-const Category = ({ sortByLatest, displayTags }) => {
-    let latest = {
-        firstHalf: sortByLatest.slice(0, sortByLatest.length / 2),
-        secondHalf: sortByLatest.slice(sortByLatest.length / 2, sortByLatest.length)
+const CategoryTag = ({ tagData, displayTags }) => {
+    let tag = {
+        firstHalf: tagData.slice(0, tagData.length / 2),
+        secondHalf: tagData.slice(tagData.length / 2, tagData.length)
     }
 
     return (
@@ -45,9 +45,9 @@ const Category = ({ sortByLatest, displayTags }) => {
                 </aside>
 
                 <div id="card-area">
-                    {/* This will be on the right side and IS NOT visible on mobile */}
+
                     <div id="card">
-                        { latest.firstHalf.map((blog, index) => (
+                        { tag ? tag.firstHalf.map((blog, index) => (
                             <Card
                                 key={index}
                                 title={blog.fields.title}
@@ -58,12 +58,11 @@ const Category = ({ sortByLatest, displayTags }) => {
                                 ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
                                 มาเถอะมาระเบิดความฝัน
                             </Card>
-                        ))}
+                        )) : null}
                     </div>
 
-                    {/* This will be on the left side and IS visible on mobile */}
                     <div id="priority-card">
-                        { latest.secondHalf.map((blog, index) => (
+                        { tag ? tag.secondHalf.map((blog, index) => (
                             <Card
                                 key={index}
                                 title={blog.fields.title}
@@ -74,7 +73,7 @@ const Category = ({ sortByLatest, displayTags }) => {
                                 ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
                                 มาเถอะมาระเบิดความฝัน
                             </Card>
-                        ))}
+                        )) : null}
                     </div>
 
                 </div>
@@ -83,15 +82,16 @@ const Category = ({ sortByLatest, displayTags }) => {
     )
 }
 
-Category.getInitialProps = async ctx => {
+CategoryTag.getInitialProps = async ctx => {
     const contentfulAPI = require('contentful').createClient({
         space: process.env.space_id,
         accessToken: process.env.access_token,
     })
 
-    async function fetchLatest() {
+    async function fetchTag(tag) {
         const entries = await contentfulAPI.getEntries({
             content_type: 'dusitHereModel1',
+            "fields.tags[in]": tag,
             order: "sys.updatedAt",
             limit: 12
         })
@@ -106,13 +106,13 @@ Category.getInitialProps = async ctx => {
         if (entries.items) return entries.items
     }
 
-    let latestData = await fetchLatest(),
+    let tagData = await fetchTag(ctx.query.tag),
         tagsData = await fetchTags()
 
     return {
-        sortByLatest: latestData,
+        tagData: tagData,
         displayTags: tagsData
     }
 }
 
-export default Category
+export default CategoryTag

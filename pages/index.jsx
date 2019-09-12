@@ -92,7 +92,7 @@ Landing.getInitialProps = async ctx => {
         if (entries.items) return entries.items
     }
 
-    async function fetchLastest() {
+    async function fetchLatest() {
         const entries = await contentfulAPI.getEntries({
             content_type: 'dusitHereModel1',
             order: "sys.createdAt",
@@ -111,7 +111,7 @@ Landing.getInitialProps = async ctx => {
     }
 
     let displayTopData = await fetchDisplayTop(),
-        latestData = await fetchLastest(),
+        latestData = await fetchLatest(),
         popularBlog = await fetchPopular();
 
     return {

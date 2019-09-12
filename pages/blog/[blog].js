@@ -25,6 +25,8 @@ const Blog = ({ post }) => {
         },
     }
 
+    console.log(post)
+
     if (typeof post === 'undefined') return <Error />
 
     return (
@@ -60,7 +62,7 @@ const Blog = ({ post }) => {
                         <h1 id="blog-header">{post.fields.title}</h1>
                         <aside id="tag-container">
                             {post.fields.tags.map((tag, index) => (
-                                <Link key={index} href={`/tag/${tag}`}>
+                                <Link key={index} href={`/category/${tag}`}>
                                     <a className="tag-link">
                                         <h6 className="tag" key={index}>
                                             {tag}
@@ -69,6 +71,7 @@ const Blog = ({ post }) => {
                                 </Link>
                             ))}
                         </aside>
+                        <time id="publish-date">Publish: {new Date(post.sys.createdAt).toLocaleString()}</time>
 
                         <section id="blog-content">
                             {documentToReactComponents(

@@ -22,13 +22,11 @@ const Card = props => {
                     <h5 className="title">{title}</h5>
                     <p className="detail">{children}</p>
                     <div className="tag-container">
-                        {tag ? (
-                            <Link href={`/tag/${tag}`}>
-                                <a className="tag">{tag}</a>
+                        {tag.map((tagName, index) => (
+                            <Link key={index} href={`/category/${tagName}`}>
+                                <a className="tag">{tagName}</a>
                             </Link>
-                        ) : (
-                            <Fragment />
-                        )}
+                        ))}
                     </div>
                 </article>
             </a>
