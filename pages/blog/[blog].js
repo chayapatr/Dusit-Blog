@@ -17,11 +17,16 @@ const Blog = ({ post, displayTags, tagData }) => {
     let options = {
         renderNode: {
             'embedded-asset-block': node => (
-                <img
-                    className="blog-image"
-                    src={`https:${node.data.target.fields.file.url}`}
-                    alt={post.fields.thumbnail.fields.description}
-                />
+                <Fragment>
+                    <figure className="blog-image">
+                        <img
+                            className="image-data"
+                            src={`https:${node.data.target.fields.file.url}`}
+                            alt={post.fields.thumbnail.fields.description}
+                        />
+                    </figure>
+                    <span className="blog-image-detail">{node.data.target.fields.title}</span>
+                </Fragment>
             ),
         },
     }
@@ -53,23 +58,14 @@ const Blog = ({ post, displayTags, tagData }) => {
             <main id="blog">
                 <article id="blog-article">
                     <section id="blog-section">
-                        <img
-                            id="blog-cover"
-                            src={`https:${post.fields.thumbnail.fields.file.url}`}
-                            alt={post.fields.thumbnail.fields.description}
-                        />
+                        <figure id="blog-cover">
+                            <img
+                                className="image-data"
+                                src={`https:${post.fields.thumbnail.fields.file.url}`}
+                                alt={post.fields.thumbnail.fields.description}
+                            />
+                        </figure>
                         <h1 id="blog-header">{post.fields.title}</h1>
-                        <aside id="tag-container">
-                            {post.fields.tags.map((tag, index) => (
-                                <Link key={index} href={`/category/${tag}`}>
-                                    <a className="tag-link">
-                                        <h6 className="tag" key={index}>
-                                            {tag}
-                                        </h6>
-                                    </a>
-                                </Link>
-                            ))}
-                        </aside>
                         <time id="publish-date">
                             Publish:{" "}
                             {new Date(post.sys.createdAt).toLocaleString()}
@@ -81,6 +77,18 @@ const Blog = ({ post, displayTags, tagData }) => {
                                 options
                             )}
                         </div>
+
+                        <aside id="tag-container">
+                            {post.fields.tags.map((tag, index) => (
+                                <Link key={index} href={`/category/${tag}`}>
+                                    <a className="tag-link">
+                                        <h6 className="tag" key={index}>
+                                            {tag}
+                                        </h6>
+                                    </a>
+                                </Link>
+                            ))}
+                        </aside>
                     </section>
                 </article>
                 <footer id="relate-card">
@@ -90,7 +98,7 @@ const Blog = ({ post, displayTags, tagData }) => {
                             title={blog.fields.title}
                             src={`https:${blog.fields.thumbnail.fields.file.url}`}
                             alt={blog.fields.thumbnail.fields.description}
-                            tag={blog.fields.tags}
+                            tag={[]}
                         />
                     ))}
                 </footer>

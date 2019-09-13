@@ -31,13 +31,18 @@ article.card
 	position: relative
 	text-decoration: none
 
-	& > img.cover
+	& > figure.cover
 		display: block
 		width:100%
 		height:300px
-		object-fit: cover
-		object-position: center
 		margin-bottom: 20px
+		background-color: preload
+
+		& > .image-data
+			width inherit
+			height inherit
+			object-fit: cover
+			object-position: center
 
 	& > h5.title
 		display: block

@@ -18,7 +18,9 @@ const Card = props => {
         <Link href={`/blog/${title}`}>
             <a className="link">
                 <article className="card">
-                    <img className="cover" src={src} alt={alt} />
+                    <figure className="cover">
+                        <img className="image-data" src={src} alt={alt} />
+                    </figure>
                     <h5 className="title">{title}</h5>
                     <p className="detail">{children}</p>
                     <div className="tag-container">

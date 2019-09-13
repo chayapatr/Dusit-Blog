@@ -43,7 +43,7 @@ article#blog-article
     & > h6,
     & > p,
     & > blockquote
-        margin 20px 15px
+        margin 30px 15px
         font-family detail-font
 
     & > h1,
@@ -105,12 +105,24 @@ article#blog-article
             word-break break-word
             line-height 1.4em
 
+    & > .blog-image-detail
+        display block
+        width 100%
+        font-size: 18px
+        color tertiary-text
+        text-align center
+
     & > .blog-image
         display: block
         width: 100%
-        margin:30px auto
-        object-fit: cover
-        object-position: center
+        margin:30px auto 10px auto
+        background-color: preload
+
+        & > .image-data
+            width inherit
+            height inherit
+            object-fit: cover
+            object-position: center
 
 h1#blog-header
     display: block
@@ -135,7 +147,7 @@ aside#tag-container
     display: flex
     flex-direction: row
     width: 100%
-    margin: 10px 0 10px 0
+    margin: 30px 0 10px 0
     font-size: 16px
     color: tertiary-text
     padding: 0 calc(6.25% - 8px)
@@ -156,13 +168,13 @@ aside#tag-container
 
 #relate-card
     width 70%
-    margin 50px auto 0 auto
+    margin 20px auto 0 auto
     flex-direction column
 
 @media screen and (max-width 567.9px)
     #relate-card
         width 100%
-        margin 50px auto 0 auto
+        margin 20px auto 0 auto
         flex-direction column
 
 @media screen and (min-width: 768px)
@@ -198,6 +210,13 @@ aside#tag-container
 
     #blog-cover
         margin:30px auto
+        background-color preload
+
+        & > .image-data
+            width inherit
+            height inherit
+            object-fit: cover
+            object-position: center
 
 @media screen and (min-width: 568px) and (max-width: 767.9px)
     h1#blog-header
@@ -217,7 +236,7 @@ aside#tag-container
     #relate-card
         display flex
         width 1020px
-        margin 50px 0 0 0
+        margin 30px 0 0 0
         flex-direction row
         justify-content space-between
         align-items flex-start

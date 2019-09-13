@@ -1,7 +1,6 @@
 @import '~stylus/colors'
 @import '~stylus/fonts'
 
-
 #relate-card
 	a.link
 		text-decoration: none
@@ -19,13 +18,18 @@ article.relate
 	align-items: center
 	position: relative
 
-	& > img.cover
+	& > figure.cover
 		display: block
 		width:100%
-		height 168px
-		object-fit: cover
-		object-position: center
+		height:300px
 		margin-bottom: 20px
+		background-color: preload
+
+		& > .image-data
+			width inherit
+			height inherit
+			object-fit: cover
+			object-position: center
 
 	& > h5.title
 		display: block
@@ -65,8 +69,3 @@ div.tag-container
 		background-color: rgba(0,0,0,.0425)
 		border-radius: 3px
 		transition: color .2s ease-out, background-color .2s ease-out
-
-@media screen and (max-width 1023.9px)
-	article.relate
-		& > img.cover
-			height 250px

@@ -11,7 +11,7 @@ import './panel.styl'
 const LandingPanel = ({ title, src, summary }) => {
     return (
         <Link href={`/blog/${title}`}>
-            <a className="link">
+            <a className="link landing-panel-preload">
                 <div
                     className="landing-panel"
                     style={{ backgroundImage: `url('${src}')` }}
