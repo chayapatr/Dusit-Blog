@@ -69,7 +69,10 @@ const Blog = ({ post, displayTags }) => {
                                 </Link>
                             ))}
                         </aside>
-                        <time id="publish-date">Publish: {new Date(post.sys.createdAt).toLocaleString()}</time>
+                        <time id="publish-date">
+                            Publish:
+                            {new Date(post.sys.createdAt).toLocaleString()}
+                        </time>
 
                         <section id="blog-content">
                             {documentToReactComponents(
@@ -85,33 +88,14 @@ const Blog = ({ post, displayTags }) => {
 }
 
 Blog.getInitialProps = async ctx => {
-    const contentfulAPI = require('contentful').createClient({
-        space: process.env.space_id,
-        accessToken: process.env.access_token,
-    })
-
-    async function fetchBlogData(blog) {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            'fields.title': blog,
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchTags() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayTag',
-            limit: 6
-        })
-        if (entries.items) return entries.items
-    }
+    let { fetchBlogData, fetchTags } = require('helpers/contentful')
 
     let blogData = await fetchBlogData(ctx.query.blog),
         tagsData = await fetchTags()
 
     return {
         post: blogData[0],
-        displayTags: tagsData
+        displayTags: tagsData,
     }
 }
 

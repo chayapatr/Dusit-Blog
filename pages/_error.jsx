@@ -59,20 +59,9 @@ const ErrorPage = ({ statusCode, displayTags }) => {
 }
 
 ErrorPage.getInitialProps = async ({ res, err }) => {
-    const contentfulAPI = require('contentful').createClient({
-        space: process.env.space_id,
-        accessToken: process.env.access_token,
-    })
+    let statusCode = res ? res.statusCode : err ? err.statusCode : null
 
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null
-
-    async function fetchTags() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayTag',
-            limit: 6,
-        })
-        if (entries.items) return entries.items
-    }
+    let {fetchTags} = require("helpers/contentful")
 
     let tagsData = await fetchTags()
 

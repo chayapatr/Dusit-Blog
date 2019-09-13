@@ -83,30 +83,9 @@ const CategoryTag = ({ tagData, displayTags }) => {
 }
 
 CategoryTag.getInitialProps = async ctx => {
-    const contentfulAPI = require('contentful').createClient({
-        space: process.env.space_id,
-        accessToken: process.env.access_token,
-    })
+    let {fetchByTag, fetchTags} = require("helpers/contentful")
 
-    async function fetchTag(tag) {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            "fields.tags[in]": tag,
-            order: "sys.updatedAt",
-            limit: 12
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchTags() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayTag',
-            limit: 6
-        })
-        if (entries.items) return entries.items
-    }
-
-    let tagData = await fetchTag(ctx.query.tag),
+    let tagData = await fetchByTag(ctx.query.tag),
         tagsData = await fetchTags()
 
     return {

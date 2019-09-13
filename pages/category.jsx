@@ -84,27 +84,7 @@ const Category = ({ sortByLatest, displayTags }) => {
 }
 
 Category.getInitialProps = async ctx => {
-    const contentfulAPI = require('contentful').createClient({
-        space: process.env.space_id,
-        accessToken: process.env.access_token,
-    })
-
-    async function fetchLatest() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            order: "sys.updatedAt",
-            limit: 12
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchTags() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayTag',
-            limit: 6
-        })
-        if (entries.items) return entries.items
-    }
+    let { fetchLatest, fetchTags} = require("helpers/contentful")
 
     let latestData = await fetchLatest(),
         tagsData = await fetchTags()

@@ -82,45 +82,7 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
 }
 
 Landing.getInitialProps = async ctx => {
-    const contentfulAPI = require('contentful').createClient({
-        space: process.env.space_id,
-        accessToken: process.env.access_token,
-    })
-
-    async function fetchDisplayTop() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayBlog',
-            'fields.title': 'Blogs which appear on top of the landing page',
-            limit: 5,
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchLatest() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            order: 'sys.createdAt',
-            limit: 6,
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchPopular() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'dusitHereModel1',
-            order: 'sys.revision',
-            limit: 6,
-        })
-        if (entries.items) return entries.items
-    }
-
-    async function fetchTags() {
-        const entries = await contentfulAPI.getEntries({
-            content_type: 'displayTag',
-            limit: 6,
-        })
-        if (entries.items) return entries.items
-    }
+    let {fetchDisplayTop, fetchLatest, fetchPopular, fetchTags} = require("helpers/contentful")
 
     let displayTopData = await fetchDisplayTop(),
         latestData = await fetchLatest(),

@@ -24,6 +24,7 @@ module.exports =  withStylus({
         config.resolve.alias['mockup'] = path.join(__dirname, 'static/mockup'),
         config.resolve.alias['static'] = path.join(__dirname, 'static'),
         config.resolve.alias['stores'] = path.join(__dirname, 'stores'),
+        config.resolve.alias['helpers'] = path.join(__dirname, 'helpers'),
         config.resolve.alias['icon'] = path.join(__dirname, 'components/icon')
          
         return config
