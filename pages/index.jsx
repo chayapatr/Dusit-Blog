@@ -52,13 +52,12 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
                                 alt={blog.fields.thumbnail.fields.description}
                                 tag={blog.fields.tags}
                             >
-                                ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                                มาเถอะมาระเบิดความฝัน
+                                {blog.fields.summary}
                             </Card>
                         ))}
                     </div>
 
-                    <Heading adaptable={true}>Lastest</Heading>
+                    <Heading adaptable={true}>Latest</Heading>
 
                     {/* This will be on the left side and IS visible on mobile */}
                     <div id="priority-card">
@@ -70,8 +69,7 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
                                 alt={blog.fields.thumbnail.fields.description}
                                 tag={blog.fields.tags}
                             >
-                                ต้องถึงที่ปลายทางที่มีวันเกิดนี้มีความรักฉันจะเจอ
-                                มาเถอะมาระเบิดความฝัน
+                                {blog.fields.summary}
                             </Card>
                         ))}
                     </div>
