@@ -33,13 +33,13 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
         <Fragment>
             <Head>
                 <title>Dusit Thani We Love</title>
-                <Title>Dusit Thani We Love</Title>
-                <Description>Dusit Thani We Love</Description>
-                <SEOImage
-                    href={`https:${displayTop[0].fields.thumbnail.fields.file.url}`}
-                    alt={displayTop[0].fields.thumbnail.fields.description}
-                />
             </Head>
+            <Title>Dusit Thani We Love</Title>
+            <Description>Dusit Thani We Love</Description>
+            <SEOImage
+                href={`https:${displayTop[0].fields.thumbnail.fields.file.url}`}
+                alt={displayTop[0].fields.thumbnail.fields.description}
+            />
 
             <div id="landing">
                 <Slider displayTop={displayTop} />
