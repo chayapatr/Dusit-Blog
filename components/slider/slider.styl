@@ -22,14 +22,19 @@ div.slider-detail
 		font-weight: bold
 		color: primary-text-alter
 		text-overflow: ellipsis
+		overflow hidden
+
+		&.is-not-active
+			width 100%
 	
 		&.is-active 
-			font-size: 72px
+			font-size: 60px
+			max-width: 750px
 			white-space: pre-wrap
 			text-overflow: unset
 			color primary-text-alter
-			padding-left: 30px
-			padding-right: 30px
+			padding-left: 15px
+			padding-right: 15px
 	
 	& > p.detail 
 		color: secondary-text-alter
@@ -99,7 +104,7 @@ div.slider-detail
 				font-size 24px
 
 				&.is-active
-					font-size 48px
+					font-size 40px
 
 @media screen and (max-width: 567.9px)
 	button.slider-panel

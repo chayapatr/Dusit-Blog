@@ -3,6 +3,8 @@ import React, { Fragment } from 'react'
 
 import Head from 'next/head'
 
+import { Title, Description, SEOImage } from 'components/head'
+
 import Slider from 'components/slider'
 import Navbar from 'components/navbar'
 import Heading from 'components/heading'
@@ -30,7 +32,13 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
     return (
         <Fragment>
             <Head>
-                <title>Dusit Here</title>
+                <title>Dusit Thani We Love</title>
+                <Title>Dusit Thani We Love</Title>
+                <Description>Dusit Thani We Love</Description>
+                <SEOImage
+                    href={`https:${displayTop[0].fields.thumbnail.fields.file.url}`}
+                    alt={displayTop[0].fields.thumbnail.fields.description}
+                />
             </Head>
 
             <div id="landing">
@@ -76,9 +84,18 @@ const Landing = ({ sortByLatest, sortByPopular, displayTop, displayTags }) => {
                 </div>
 
                 <Heading>Category</Heading>
+                <Category />
+
             </main>
         </Fragment>
     )
+}
+
+let Category = () => {
+    /**
+     * ! ทำกันเอาเองเลย! 
+     */
+    return null    
 }
 
 Landing.getInitialProps = async ctx => {

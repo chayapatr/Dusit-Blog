@@ -85,7 +85,7 @@ article#blog-article
     & > p
         display: block
         font-weight: normal
-        font-size: 21px
+        font-size: 20px
         line-height: 1.8em
         color: secondary-text
         cursor: default
@@ -119,7 +119,7 @@ article#blog-article
         background-color: preload
 
         & > .image-data
-            width inherit
+            width 100%
             height inherit
             object-fit: cover
             object-position: center
@@ -177,7 +177,7 @@ aside#tag-container
         margin 20px auto 0 auto
         flex-direction column
 
-@media screen and (min-width: 768px)
+@media screen and (min-width: 769px)
     main#blog
         padding: 50px 0
 
@@ -240,3 +240,10 @@ aside#tag-container
         flex-direction row
         justify-content space-between
         align-items flex-start
+
+    & > .relate
+        & > .cover
+            max-height 200px
+
+            & > .image-data
+                max-height 200px
