@@ -155,16 +155,13 @@ aside#tag-container
             background-color: rgba(0,0,0,.0375)    
 
 #relate-card
-    display flex
-    width 1020px
-    margin 50px 0 0 0
-    flex-direction row
-    justify-content space-between
-    align-items flex-start
+    width 70%
+    margin 50px auto 0 auto
+    flex-direction column
 
-@media screen and (max-width 1023.9px)
+@media screen and (max-width 567.9px)
     #relate-card
-        width 70%
+        width 100%
         margin 50px auto 0 auto
         flex-direction column
 
@@ -210,9 +207,17 @@ aside#tag-container
         width 80%
         margin auto
 
-@media screen and (min-width 1366px)
+@media screen and (min-width 1024px)
     h1#blog-header
         font-size 48px
 
     img#blog-cover
         margin-top 30px
+
+    #relate-card
+        display flex
+        width 1020px
+        margin 50px 0 0 0
+        flex-direction row
+        justify-content space-between
+        align-items flex-start
