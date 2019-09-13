@@ -8,6 +8,7 @@ import { Title, Description, Tag, SEOImage } from 'components/head'
 import Error from 'components/error'
 import Navbar from 'components/navbar'
 import Relate from 'components/relate'
+import Heading from 'components/heading'
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -91,6 +92,7 @@ const Blog = ({ post, displayTags, tagData }) => {
                         </aside>
                     </section>
                 </article>
+                <Heading>Related Article</Heading>
                 <footer id="relate-card">
                     {tagData.map((blog, index) => (
                         <Relate
