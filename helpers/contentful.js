@@ -38,12 +38,12 @@ export async function fetchTags() {
     if (entries.items) return entries.items
 }
 
-export async function fetchByTag(tag) {
+export async function fetchByTag(tag, limit = 12) {
     const entries = await contentfulAPI.getEntries({
         content_type: 'dusitHereModel1',
         "fields.tags[in]": tag,
         order: "sys.updatedAt",
-        limit: 12
+        limit: limit
     })
     if (entries.items) return entries.items
 }

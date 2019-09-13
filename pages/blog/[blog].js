@@ -7,12 +7,13 @@ import { Title, Description, Tag, SEOImage } from 'components/head'
 
 import Error from 'components/error'
 import Navbar from 'components/navbar'
+import Relate from 'components/relate'
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import 'stylus/blog.styl'
 
-const Blog = ({ post, displayTags }) => {
+const Blog = ({ post, displayTags, tagData }) => {
     let options = {
         renderNode: {
             'embedded-asset-block': node => (
@@ -70,32 +71,45 @@ const Blog = ({ post, displayTags }) => {
                             ))}
                         </aside>
                         <time id="publish-date">
-                            Publish:
+                            Publish:{" "}
                             {new Date(post.sys.createdAt).toLocaleString()}
                         </time>
 
-                        <section id="blog-content">
+                        <div id="blog-content">
                             {documentToReactComponents(
                                 post.fields.content,
                                 options
                             )}
-                        </section>
+                        </div>
                     </section>
                 </article>
+                <footer id="relate-card">
+                    {tagData.map((blog, index) => (
+                        <Relate
+                            key={index}
+                            title={blog.fields.title}
+                            src={`https:${blog.fields.thumbnail.fields.file.url}`}
+                            alt={blog.fields.thumbnail.fields.description}
+                            tag={blog.fields.tags}
+                        />
+                    ))}
+                </footer>
             </main>
         </Fragment>
     )
 }
 
 Blog.getInitialProps = async ctx => {
-    let { fetchBlogData, fetchTags } = require('helpers/contentful')
+    let { fetchBlogData, fetchByTag, fetchTags } = require('helpers/contentful')
 
     let blogData = await fetchBlogData(ctx.query.blog),
+        tagData = await fetchByTag(ctx.query.tag, 3),
         tagsData = await fetchTags()
 
     return {
         post: blogData[0],
-        displayTags: tagsData,
+        tagData: tagData,
+        displayTags: tagsData
     }
 }
 

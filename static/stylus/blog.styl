@@ -61,32 +61,32 @@ article#blog-article
         line-height 1.25em
 
     & > h1
-        font-size: 32px
+        font-size: 36px
         font-weight: bold
         font-family: title-font
 
     & > h2
-        font-size: 28px
+        font-size: 32px
         font-weight: bold
         font-family: title-font
 
     & > h3
-        font-size: 26px
+        font-size: 30px
 
     & > h4
-        font-size: 24px
+        font-size: 28px
 
     & > h5
-        font-size: 22px
+        font-size: 26px
 
     & > h6
-        font-size: 20px
+        font-size: 24px
 
     & > p
         display: block
         font-weight: normal
-        font-size: 18px
-        line-height: 1.625em
+        font-size: 21px
+        line-height: 1.8em
         color: secondary-text
         cursor: default
 
@@ -152,10 +152,21 @@ aside#tag-container
             padding: 5px 8px
             border-radius: 3px
             transition: background-color .2s ease-out
-
-        &:hover > h6.tag,
-        &:focus > h6.tag
             background-color: rgba(0,0,0,.0375)    
+
+#relate-card
+    display flex
+    width 1020px
+    margin 50px 0 0 0
+    flex-direction row
+    justify-content space-between
+    align-items flex-start
+
+@media screen and (max-width 1023.9px)
+    #relate-card
+        width 70%
+        margin 50px auto 0 auto
+        flex-direction column
 
 @media screen and (min-width: 768px)
     main#blog
@@ -186,7 +197,6 @@ aside#tag-container
             margin 0
 
         & > p
-            font-size: 20px
             padding: 0 8px
 
     #blog-cover
