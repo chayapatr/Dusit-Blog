@@ -57,8 +57,12 @@ const LandingSlidePanel = ({ store, dispatch, props }) => {
                 style={{ backgroundImage: `url(${src})`,flex: 1 }}
             >
                 <div className="slider-detail is-active">
-                    <h2 className="title is-active">{title}</h2>
-                    <p className="detail">{detail}</p>
+                    <Link href={`/blog/${title}`}>
+                        <h2 className="title is-active">{title}</h2> 
+                    </Link>
+                    <Link href={`/blog/${title}`}>
+                        <p className="detail">{detail}</p>
+                    </Link>
                     <Link href={`/blog/${title}`}>
                         <a className="read">Read more</a>
                     </Link>
